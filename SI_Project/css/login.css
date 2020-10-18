@@ -1,0 +1,61 @@
+/*form style*/
+body 
+{
+	background-color: whitesmoke;
+}
+h1
+{
+	text-align: center;
+	font-size: 40px;
+	color: #23527c;
+}
+form
+{
+	margin: 20px auto;
+	width: 320px;
+	color: #23527c;
+}
+input
+{
+	padding: 10px;
+	font-size: inherit;
+}
+input[type="text"]
+{
+	display: block;
+	margin-bottom: 25px;
+	width: 100%;
+	border:2px #23527c;
+	background: #FAF6D9 
+}
+
+input[type="password"]
+{
+	display: block;
+	margin-bottom: 25px;
+	width: 100%;
+	border:2px #23527c;
+	background: #FAF6D9 
+}
+
+
+input[type="submit"]
+{
+	display: block;
+	margin-bottom: 25px;
+	width: 100%;
+	border:2px #23527c;
+
+}
+
+input[type="submit"]
+{
+	width: 344px;
+	height: 45px;
+	background-color: #23527c;
+	color: white;
+}
+input:focus
+{
+	background: white;
+}
