@@ -15,23 +15,23 @@ echo " welcome ".$_SESSION['username']
 	include('header.php');
 	include('titleheader.php');
 ?>
-<form method="POST" action="addstudent.php" enctype="multipart/form-data">
+<form method="POST" action="addfaculty.php" enctype="multipart/form-data">
 	<table border="1" align="center" style="width:50%;font-size: 30px;">
 		 <tr>
-				<th>Student ID</th>
-				<td><input type="text" name="StudentID" placeholder="Enter Student ID"required></td>
+				<th>Faculty ID</th>
+				<td><input type="text" name="FacultyID" placeholder="Enter Faculty ID"required></td>
 		 </tr>
 		 <tr>
-				<th>Student Name</th>
-				<td><input type="text" name="StudentName" placeholder="Enter Full Name" required></td>
+				<th>First Name</th>
+				<td><input type="text" name="FirstName" placeholder="Enter First Name" required></td>
 		 </tr>
 		 <tr>
-				<th>Major</th>
-				<td><input type="text" name="Major" placeholder="Enter Student Major" required></td>
+				<th>Last Name</th>
+				<td><input type="text" name="LastName" placeholder="Enter Last Name" required></td>
 		 </tr>
                   <tr>
-				<th>GPA</th>
-				<td><input type="text" name="GPA" placeholder="Enter Student GPA" required></td>
+				<th>Department</th>
+				<td><input type="text" name="Department" placeholder="Enter Faculty Department" required></td>
 		 </tr>
 		 
 		
@@ -47,15 +47,15 @@ echo " welcome ".$_SESSION['username']
 if(isset($_POST['Submit']))
 {
 	include ('../dbconnect.php');
-        $StudentID=$_POST['StudentID'];
-	$StudentName=$_POST['StudentName'];
-	$Major=$_POST['Major'];
-	$GPA=$_POST['GPA'];
+    $FacultyID=$_POST['FacultyID'];
+	$FirstName=$_POST['FirstName'];
+	$LastName=$_POST['LastName'];
+	$Department=$_POST['Department'];
 	
 	
 	// $sql="INSERT INTO student (rollno,name, city, pcon, class,image) VALUES ('$ROLLNO','$NAME','$CITY','$PCON','$CLASS','$IMAGE')";
 
-	$qry = "INSERT INTO `student`.`student_info`(`StudentID`, `StudentName`, `Major`,`GPA`) VALUES ('$StudentID','$StudentName','$Major','$GPA')";
+	$qry = "INSERT INTO `student`.`faculty_info`(`FacultyID`, `FirstName`, `LastName`,`Department`) VALUES ('$FacultyID','$FirstName','$LastName','$Department')";
 
    $run = mysqli_query($db, $qry);
 
