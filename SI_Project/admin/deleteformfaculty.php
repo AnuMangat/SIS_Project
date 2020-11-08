@@ -17,9 +17,9 @@ echo " welcome ".$_SESSION['username']
 <?php 
 {
 include ('../dbconnect.php');
-$StudentID=$_GET['StudentID'];
+$FacultyID=$_GET['FacultyID'];
 
-$sql="DELETE FROM student.student_info WHERE StudentID = $StudentID";
+$sql="DELETE FROM student.faculty_info WHERE FacultyID = $FacultyID";
 $result= mysqli_query($db,$sql);   /*include two variable database($db) and query($sql) and finally store $data variable */
 print_r($result); 
 if($result==1)
