@@ -14,12 +14,12 @@ echo " welcome ".$_SESSION['username']
 	include('header.php');
 	include('titleheader.php');
 ?>   
-<form action="deletestudent.php" method="POST">
+<form action="deletefaculty.php" method="POST">
 	<table align="center">
 	<tr>
 	
-				<th>Student ID</th>
-				<td><input type="text" name="StudentID" placeholder="Enter Student ID" required></td>
+				<th>Faculty ID</th>
+				<td><input type="text" name="FacultyID" placeholder="Enter Faculty ID" required></td>
 				<td><input type="Submit" name="Submit" value="Search"></td>
 	</tr>
 </table>
@@ -28,10 +28,10 @@ echo " welcome ".$_SESSION['username']
 
 <table align="center" width="80%" border="1" style="margin-top: 10px";>
 	<tr style="background-color: #000;color: #fff; " >
-		<th>Student ID</th>
-		<th>Student Name</th>
-		<th>Major </th>
-		<th>GPA</th>
+		<th>Faculty ID</th>
+		<th>First Name</th>
+		<th>Last Name</th>
+		<th>Department</th>
 		<th>Delete</th>
 	</tr>
 	
@@ -39,8 +39,8 @@ echo " welcome ".$_SESSION['username']
  if(isset($_POST['Submit']))
 {
 	include ('../dbconnect.php');
-	$StudentID=$_POST['StudentID'];
-	$sql="SELECT * FROM student.student_info WHERE StudentID = $StudentID";
+	$FacultyID=$_POST['FacultyID'];
+	$sql="SELECT * FROM student.faculty_info WHERE FacultyID = $FacultyID";
 	$run = mysqli_query($db,$sql);   
 	if(mysqli_num_rows($run)<1)
 	{
@@ -54,11 +54,11 @@ echo " welcome ".$_SESSION['username']
 			$count++; 
 			?>
 			<tr align="center"> 
-				<td><?php echo $result['StudentID'];?></td>    
-				<td><?php  echo $result['StudentName'];?></td>
-				<td><?php  echo $result['Major'];?></td>
-                                <td><?php  echo $result['GPA'];?></td>
-				<td><a href="deleteform.php?StudentID=<?php echo $result['StudentID'];?> ">Delete</a></td> 
+				<td><?php echo $result['FacultyID'];?></td>    
+				<td><?php  echo $result['FirstName'];?></td>
+				<td><?php  echo $result['LastName'];?></td>
+                <td><?php  echo $result['Department'];?></td>
+				<td><a href="deleteformfaculty.php?FacultyID=<?php echo $result['FacultyID'];?> ">Delete</a></td> 
 			</tr>
 			<?php
 			
