@@ -2,18 +2,20 @@
 <html>
 
 <head>
-	<title></title>
-	<link rel="stylesheet" type="text/css" href="css/login.css">
-
+<link rel="stylesheet" type="text/css" href="css/login.css">
+<title>Student Management System</title>
 </head>
+ 
+ 
+<h4><a href="index.php" style="float: left;margin-left: 50px; margin-top:5px ;font-size: 20px;color:#23527c;">Back </a></h4>
+
+
+<form action="login.php" method="POST">
 <body>
-  <h4><a href="index.php" style="float: left;margin-left: 50px; margin-top:50px ;font-size: 20px;color:#23527c;line-height: 130px;">Back </a></h4>
-<h1>ADMIN lOGIN </h1>
-<form action="login.php" method="POST" >
-	
-	<input type="text" name="username" placeholder ="Username"><br>
-    <input type="password" name="password" placeholder = "Password"><br>
-	<input type="submit" value="login"><br>
+	<h1 align="Center" >Admin Login</h1>
+		<input type="text" name="username" placeholder ="Username"><br>
+		<input type="password" name="password" placeholder = "Password"><br>
+		<input type="submit" value="Login"><br>
 </form>
 </body>
 </html> 
