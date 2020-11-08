@@ -17,12 +17,12 @@ echo " welcome ".$_SESSION['username'];
 <!DOCTYPE html>
 <html>
 <head>
-	<title></title> 
+	<title>Student Management System</title> 
 </head>
 <body>
 
 	<div class="admintitle" align="center">
-		<h1>Welcome to Admin Dashboard</h1>
+		<h1>Admin Dashboard</h1>
 
 	</div>
 	<div class="dashboard">
@@ -39,10 +39,22 @@ echo " welcome ".$_SESSION['username'];
 				<td>3.</td>
 				<td><a href="deletestudent.php">Delete Student Details</a></td>
 			</tr>
+			<tr>
+				<td>4.</td>
+				<td><a href="addfaculty.php">Add Faculty Details</a></td>
+			</tr>
+			<tr>
+				<td>5.</td>
+				<td><a href="updatefaculty.php">Update Faculty Details</a></td>
+			</tr>
+			<tr>
+				<td>6.</td>
+				<td><a href="deletefaculty.php">Delete Faculty Details</a></td>
+			</tr>
 		</table>
-		<div class="button">
-			<a href="../logout.php" class="btn">logout</a>
-		</div>
+
+			<center><a href="../logout.php" class="btn">Logout</a></center>
+
 		
 	</div>
 
