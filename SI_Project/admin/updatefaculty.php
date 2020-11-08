@@ -57,7 +57,7 @@ echo " welcome ".$_SESSION['username']
 				<td><?php  echo $result['FirstName'];?></td>
 				<td><?php  echo $result['LastName'];?></td>
                 <td><?php  echo $result['Department'];?></td>
-				<td><a href="updateform.php?FacultyID=<?php echo $result['FacultyID'];?> ">Edit</a></td> 
+				<td><a href="updateformfaculty.php?FacultyID=<?php echo $result['FacultyID'];?> ">Edit</a></td> 
 			</tr>
 			<?php
 			

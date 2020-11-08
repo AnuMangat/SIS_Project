@@ -18,37 +18,37 @@ echo " welcome ".$_SESSION['username']
 <?php
 
 	include ('../dbconnect.php');
-	$id=$_GET['studentid'];
-	$sql="SELECT * FROM  student.student_info WHERE StudentID = $id";
+	$FacultyID=$_GET['FacultyID'];
+	$sql="SELECT * FROM  student.faculty_info WHERE FacultyID = $FacultyID";
 	$run = mysqli_query($db,$sql); 
 	$result=mysqli_fetch_assoc($run);
         
-	$name=$result['StudentName'];
-	$major=$result['Major'];
-	$gpa=$result['GPA'];
+	$FirstName=$result['FirstName'];
+	$LastName=$result['LastName'];
+	$Department=$result['Department'];
 	
 ?>
-	<form method="POST" action="updatedata.php" enctype="multipart/form-data">
+	<form method="POST" action="updatedatafaculty.php" enctype="multipart/form-data">
 	<table border="1" align="center" style="width:50%;font-size: 30px;">
 		 
 		 <tr>
-				<th>Name</th>
+				<th>First Name</th>
 		
-					<td><input type="text" name="name" value="<?php echo $name; ?>"required></td>
+					<td><input type="text" name="FirstName" value="<?php echo $FirstName; ?>"required></td>
 
 			
 		 </tr>
 		 <tr>
-				<th>Major</th>  
-				<td><input type="text" name="major" value="<?php if ( isset( $major ) ) {  echo $major; }?>" required></td>
+				<th>Last Name</th>  
+				<td><input type="text" name="LastName" value="<?php if ( isset( $LastName ) ) {  echo $LastName; }?>" required></td>
 		 </tr>
 		 <tr>
-				<th>GPA</th>
-				<td><input type="number" min="1" max="4" step=".01" name="gpa" value="<?php if ( isset( $gpa ) ) {  echo $gpa; }?>"required></td>
+				<th>Department</th>
+				<td><input type="text" name="Department" value="<?php if ( isset( $Department ) ) {  echo $Department; }?>"required></td>
 		 </tr>
 		 <tr>  
 		 	<td colspan="2" align="center">
-		 		<input type="text" name="id" value="<?php echo $id;?>"/>
+		 		<input type="text" name="FacultyID" value="<?php echo $FacultyID;?>"/>
 		 		<input height="30%" type="submit" name="Submit" value="Submit">
 		 	</td>
 		 </tr>
