@@ -1,4 +1,1 @@
-# SIS_Project
-
-GitHub Tutorial:
-https://guides.github.com/activities/hello-world/
+# SIS_Project - Student Management System
