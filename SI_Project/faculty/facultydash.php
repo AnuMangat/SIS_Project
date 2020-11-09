@@ -3,13 +3,13 @@
 include ('../dbconnect.php');
 session_start();
 
-if(!isset($_SESSION['studentid']))
+if(!isset($_SESSION['facultyid']))
 {
-	header('location:../login.php');
+	header('location:../facultylogin.php');
 }
 
-$studentInfo = getStudentInfo($db,$_SESSION['studentid']);
-if($studentInfo == null)
+$facultyInfo = getFacultyInfo($db,$_SESSION['facultyid']);
+if($facultyInfo == null)
 {
     echo "Error loading student info!!";
     return;
@@ -17,28 +17,28 @@ if($studentInfo == null)
 ?>
 		<table  border="1" >
 			<tr>
-				<th colspan="3" ><h4>Student Details<h4></th>
+				<th colspan="3" ><h4>Faculty Details<h4></th>
 			</tr>
 			<tr>
-		 		<th>Student Name</th>
-		 		<td><?php echo $studentInfo['StudentName']; ?></td>
+		 		<th>First Name</th>
+		 		<td><?php echo $facultyInfo['FirstName']; ?></td>
 			</tr>
 			<tr>
-				<th> Major</th>
-		 		<td><?php echo $studentInfo['Major']; ?></td>
+				<th>Last Name</th>
+		 		<td><?php echo $facultyInfo['LastName']; ?></td>
 			 </tr>
 			 <tr>
-				<th> GPA</th>
-		 		<td><?php echo $studentInfo['GPA']; ?></td>
+				<th>Department</th>
+		 		<td><?php echo $facultyInfo['Department']; ?></td>
 			 </tr>
 		</table>
 <?php        
-function getStudentInfo($db,$studentid)
+function getFacultyInfo($db,$facultyid)
 {
-        $sql="SELECT * from student.student_info s
-               INNER JOIN student.student_login sl 
-               ON s.StudentID = sl.student_id 
-               WHERE s.StudentID = $studentid";
+        $sql="SELECT * from student.faculty_info f
+               INNER JOIN student.faculty_login fl 
+               ON f.FacultyID = fl.faculty_id 
+               WHERE f.FacultyID = $facultyid";
 	$result= mysqli_query($db,$sql);
 
         if(mysqli_num_rows($result)>0)
@@ -51,5 +51,5 @@ function getStudentInfo($db,$studentid)
         
   ?>
 <div class="button">
-			<a href="../student_logout.php" class="btn">logout</a>
+			<a href="../facultylogout.php" class="btn">logout</a>
 		</div>
