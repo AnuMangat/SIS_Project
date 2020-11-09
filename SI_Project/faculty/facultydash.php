@@ -35,10 +35,7 @@ if($facultyInfo == null)
 
 	</div>
 	<div class="dashboard">
-		<table  border="1" >
-			<tr>
-				<th colspan="3" ><h4>Faculty Details<h4></th>
-			</tr>
+		<table  border="0" align="center" style="width: 50%;font-size: 30px;">
 			<tr>
 		 		<th>First Name</th>
 		 		<td><?php echo $facultyInfo['FirstName']; ?></td>
