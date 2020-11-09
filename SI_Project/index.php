@@ -21,7 +21,8 @@
 			<h1>Student Information Management System</h1>
 		</div>
 		<div class="button">
-                    <a href="studentlogin.php" class="btn">Student Login</a>
+            <a href="studentlogin.php" class="btn">Student Login</a>
+			<a href="facultylogin.php" class="btn">Faculty Login</a>
 			<a href="login.php" class="btn">Admin Login</a>
 			
 		</div>
