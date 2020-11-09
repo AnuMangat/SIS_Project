@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 09, 2020 at 04:07 AM
+-- Generation Time: Nov 09, 2020 at 10:29 PM
 -- Server version: 10.4.14-MariaDB
 -- PHP Version: 7.2.34
 
@@ -100,16 +100,31 @@ INSERT INTO `admin_personal_info` (`id`, `firstname`, `lastname`, `address`, `ph
 
 CREATE TABLE `course_info` (
   `CourseID` varchar(15) NOT NULL,
-  `CourseName` varchar(50) NOT NULL
+  `CourseName` varchar(50) NOT NULL,
+  `Department` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `course_info`
 --
 
-INSERT INTO `course_info` (`CourseID`, `CourseName`) VALUES
-('CS100', 'Computer Foundationa'),
-('MT380', 'Integral Calculus');
+INSERT INTO `course_info` (`CourseID`, `CourseName`, `Department`) VALUES
+('BIO101', 'Cell Biology', 'Biology'),
+('BIO201', 'Anatomy', 'Biology'),
+('BIO305', 'Metabolism', 'Biology'),
+('CHEM101', 'General Chemistry I', 'Chemistry'),
+('CHEM102', 'General Chemistry II', 'Chemistry'),
+('CHEM105', 'Organic Chemistry', 'Chemistry'),
+('CS100', 'Introduction to Algorithms', 'CS'),
+('CS102', 'Data Structures', 'CS'),
+('CS200', 'Game Design', 'CS'),
+('CS405', 'Artificial Intelligence', 'CS'),
+('HK101', 'Introductory Exercise Physiology', 'Human Kinetics'),
+('HK402', 'Neurophysiology', 'Human Kinetics'),
+('MT101', 'Integral Calculus', 'Math'),
+('MT102', 'Differential Calculus', 'Math'),
+('MT105', 'Linear Algebra', 'Math'),
+('MT202', 'Number Theory', 'Math');
 
 -- --------------------------------------------------------
 
@@ -143,7 +158,8 @@ INSERT INTO `faculty_info` (`FacultyID`, `FirstName`, `LastName`, `Department`) 
 (123, 'Johnny', 'Bravo', 'CS'),
 (456, 'Brenda', 'Sanders', 'Math'),
 (789, 'Ken', 'Thomas', 'Bio'),
-(1234, 'Test', 'Test', 'CS');
+(1234, 'Test', 'Test', 'CS'),
+(6345, 'Tom', 'Tom', 'CS');
 
 -- --------------------------------------------------------
 
@@ -233,6 +249,12 @@ ALTER TABLE `admin_info`
 --
 ALTER TABLE `admin_personal_info`
   ADD KEY `id constraint personal info` (`id`);
+
+--
+-- Indexes for table `course_info`
+--
+ALTER TABLE `course_info`
+  ADD PRIMARY KEY (`CourseID`);
 
 --
 -- Indexes for table `faculty_info`
