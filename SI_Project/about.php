@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -18,12 +17,22 @@
 			</ul>
 		</div>
 		<div class="title">
-			<h1>Student Information Management System</h1>
+		
+		<h1>Student Information Management System</h1>
+		
 		</div>
-
 	</header>
-    
-    
+
+<center><h1>About This Project</h1><center>
+
+<br> 
+
+The student management system is a project where you act as an administrator in which you are able to add/delete/update student and faculty records.
+
+You have the ability to log-in as a student and view your details, along with adding/deleting/updating courses.
+
+You can also log in as a faculty member and  view your details and look into the courses you are scheduled to teach.
+   
 
 </body>
 </html>
