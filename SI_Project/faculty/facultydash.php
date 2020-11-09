@@ -49,6 +49,17 @@ if($facultyInfo == null)
 		 		<td><?php echo $facultyInfo['Department']; ?></td>
 			 </tr>
 		</table>
+		<p>
+
+<table align="center" width="80%" border="1" style="margin-top: 10px";>
+	<tr style="background-color: #000;color: #fff; " >
+		<th>Course ID</th>
+		<th>Course Name</th>
+		<th>Department</th>
+		<th>Room</th>
+		<th>Time Slot</th>
+	</tr>	
+</table>		
 		
 <?php        
 function getFacultyInfo($db,$facultyid)
