@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 15, 2020 at 01:54 AM
+-- Generation Time: Nov 15, 2020 at 09:10 PM
 -- Server version: 10.4.14-MariaDB
 -- PHP Version: 7.4.11
 
@@ -39,10 +39,10 @@ CREATE TABLE `admin` (
 
 INSERT INTO `admin` (`id`, `username`, `password`) VALUES
 (1, 'admin', 'admin'),
-(2, 'admin2', 'pass'),
-(3, 'moderator', 'password'),
-(4, 'Dora', 'something'),
-(5, 'Tony', 'test123');
+(2, 'admin2', 'Test'),
+(3, 'moderator', 'Test'),
+(4, 'Dora', 'Test'),
+(5, 'Tony', 'Test');
 
 -- --------------------------------------------------------
 
@@ -53,44 +53,21 @@ INSERT INTO `admin` (`id`, `username`, `password`) VALUES
 CREATE TABLE `admin_info` (
   `id` int(11) NOT NULL,
   `name` varchar(50) NOT NULL,
-  `department` varchar(50) NOT NULL
+  `department` varchar(50) NOT NULL,
+  `address` varchar(100) DEFAULT NULL,
+  `phone` varchar(20) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `admin_info`
 --
 
-INSERT INTO `admin_info` (`id`, `name`, `department`) VALUES
-(1, 'Bob', 'Math'),
-(2, 'Vance', 'CS'),
-(3, 'Yuri', 'CS'),
-(4, 'Dora', 'Bio'),
-(5, 'Tony', 'Chem');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `admin_personal_info`
---
-
-CREATE TABLE `admin_personal_info` (
-  `id` int(11) NOT NULL,
-  `firstname` varchar(50) NOT NULL,
-  `lastname` varchar(50) NOT NULL,
-  `address` varchar(100) NOT NULL,
-  `phone` varchar(20) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `admin_personal_info`
---
-
-INSERT INTO `admin_personal_info` (`id`, `firstname`, `lastname`, `address`, `phone`) VALUES
-(1, 'Bob', 'Benson', '123 Main St.', '5136451457'),
-(2, 'Vance', 'Smith', '456 West St.', '7565487498'),
-(3, 'Yuri', 'Yone', '678 East St.', '6587451485'),
-(4, 'Dora', 'Jones', '7546 South St.', '8656662415'),
-(5, 'Frank', 'Miller', '9846 North St.', '9871235481');
+INSERT INTO `admin_info` (`id`, `name`, `department`, `address`, `phone`) VALUES
+(1, 'Bob Thompson', 'Math', '123 Main St.', '5136451457'),
+(2, 'Vincent Smith', 'CS', '678 East St.', '6587451485'),
+(3, 'Yuri', 'CS', '456 West St.', '7565487498'),
+(4, 'Dora', 'Biology', '7546 South St.', '8656662415'),
+(5, 'Tony', 'Chemistry', '9846 North St.', '9871235481');
 
 -- --------------------------------------------------------
 
@@ -156,11 +133,11 @@ CREATE TABLE `faculty_info` (
 --
 
 INSERT INTO `faculty_info` (`FacultyID`, `FirstName`, `LastName`, `Department`) VALUES
-(123, 'Test', 'Test', 'CS'),
-(454, 'Tom', 'Tom', 'CS'),
+(123, 'Joe', 'Roberts', 'CS'),
+(454, 'Tom', 'Tom', 'Chemistry'),
 (456, 'Brenda', 'Sanders', 'Math'),
-(789, 'Ken', 'Thomas', 'Bio'),
-(12345, 'Johnny', 'Bravo', 'CS');
+(789, 'Ken', 'Thomas', 'Biology'),
+(12345, 'Johnny', 'Bravo', 'Physics');
 
 -- --------------------------------------------------------
 
@@ -179,8 +156,8 @@ CREATE TABLE `faculty_login` (
 
 INSERT INTO `faculty_login` (`faculty_id`, `password`) VALUES
 (123, 'Test'),
-(456, 'Password'),
-(789, 'admin');
+(456, 'Test'),
+(789, 'Test');
 
 -- --------------------------------------------------------
 
@@ -242,10 +219,10 @@ CREATE TABLE `student_info` (
 --
 
 INSERT INTO `student_info` (`StudentID`, `StudentName`, `Major`, `GPA`) VALUES
-(123, 'Test', 'CS', '3.80'),
+(123, 'Thomas', 'CS', '3.80'),
 (4321, 'Daniel', 'Math', '3.00'),
 (6789, 'Nimo', 'CS', '3.72'),
-(8910, 'Kyle', 'Bio', '3.00'),
+(8910, 'Kyle', 'Biology', '3.00'),
 (12314, 'bobobo', 'CS', '3.00'),
 (88778, 'Bob', 'Math', '3.00');
 
@@ -266,10 +243,10 @@ CREATE TABLE `student_login` (
 
 INSERT INTO `student_login` (`student_id`, `password`) VALUES
 (123, 'Test'),
-(4321, 'heyy'),
-(6789, 'Nimo89'),
-(8910, 'hello'),
-(88778, 'hihello');
+(4321, 'Test'),
+(6789, 'Test'),
+(8910, 'Test'),
+(88778, 'Test');
 
 -- --------------------------------------------------------
 
@@ -283,16 +260,18 @@ CREATE TABLE `teaches` (
   `RoomNo` int(11) NOT NULL,
   `Building` varchar(40) COLLATE utf8_unicode_ci NOT NULL,
   `StartTime` time NOT NULL,
-  `EndTime` time NOT NULL
+  `EndTime` time NOT NULL,
+  `Title` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Dumping data for table `teaches`
 --
 
-INSERT INTO `teaches` (`FacultyID`, `CourseID`, `RoomNo`, `Building`, `StartTime`, `EndTime`) VALUES
-(456, 'COMP-1000', 401, 'Toldo Building', '10:00:00', '11:20:00'),
-(789, 'BIOL-2071', 1121, 'Erie Hall', '02:30:00', '03:50:00');
+INSERT INTO `teaches` (`FacultyID`, `CourseID`, `RoomNo`, `Building`, `StartTime`, `EndTime`, `Title`) VALUES
+(123, 'COMP-4150', 53, 'Chrysler Hall North', '08:30:00', '09:50:00', 'Advanced Database Design'),
+(456, 'COMP-1000', 401, 'Toldo Building', '10:00:00', '11:20:00', 'Key Concepts in Computer Science'),
+(789, 'BIOL-2071', 1121, 'Erie Hall', '02:30:00', '03:50:00', 'Introductory Microbiology & Techniques');
 
 -- --------------------------------------------------------
 
@@ -330,12 +309,6 @@ ALTER TABLE `admin`
 --
 ALTER TABLE `admin_info`
   ADD KEY `id constraint` (`id`);
-
---
--- Indexes for table `admin_personal_info`
---
-ALTER TABLE `admin_personal_info`
-  ADD KEY `id constraint personal info` (`id`);
 
 --
 -- Indexes for table `course`
@@ -424,13 +397,7 @@ ALTER TABLE `admin`
 -- Constraints for table `admin_info`
 --
 ALTER TABLE `admin_info`
-  ADD CONSTRAINT `id constraint` FOREIGN KEY (`id`) REFERENCES `admin` (`id`);
-
---
--- Constraints for table `admin_personal_info`
---
-ALTER TABLE `admin_personal_info`
-  ADD CONSTRAINT `id constraint personal info` FOREIGN KEY (`id`) REFERENCES `admin` (`id`);
+  ADD CONSTRAINT `id constraint` FOREIGN KEY (`id`) REFERENCES `admin` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `enrolled`
