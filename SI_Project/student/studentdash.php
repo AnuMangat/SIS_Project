@@ -18,6 +18,11 @@ $coursesTaught = getTaught($db,$_SESSION['studentid']);
 $studentEnrollment = getEnrollment($db,$_SESSION['studentid']);
 $taughtRows = $coursesTaught->num_rows;
 $enrollmentRows = $studentEnrollment->num_rows;
+
+$currentGPA = calculateGPA($db,$_SESSION['studentid']);
+$j = 0;
+$currentGPA->data_seek($j);
+$GPArow = $currentGPA->fetch_array(MYSQLI_NUM);
 ?>
 		<table  border="1" >
 			<tr>
@@ -33,7 +38,7 @@ $enrollmentRows = $studentEnrollment->num_rows;
 			 </tr>
 			 <tr>
 				<th> GPA</th>
-				<td><?php echo $studentInfo['GPA']; ?></td>
+				<td><?php echo $GPArow[0]/*$studentInfo['GPA'];*/ ?></td>
 			 </tr>
 		</table>
 		<br>
@@ -70,7 +75,7 @@ echo <<<_END
 				<tr>
 				<td>$row[1]</td>
 				<td>$row[10]</td>   
-				<td>$row[7]</td>   
+				<td>$row[8] $row[9]</td>   
 				<td>$row[2]</td>
 				<td>$row[3]</td>
 				<td>$row[4]</td>
@@ -177,6 +182,18 @@ function getEnrollment($db,$studentid)
 	if(!empty($resultenrolled) && mysqli_num_rows($resultenrolled)>0)
 	{
 		return $resultenrolled;
+	}
+	return null;
+}
+
+function calculateGPA($db,$studentid)
+{
+	$sqlGPA="SELECT AVG(Mark) FROM student.transcript t WHERE t.studentID = $studentid";
+	$resultGPA=mysqli_query($db,$sqlGPA);
+	if(!empty($resultGPA) && mysqli_num_rows($resultGPA)>0)
+	{
+		//updateGPA($db,$resultGPA);
+		return $resultGPA;
 	}
 	return null;
 }
