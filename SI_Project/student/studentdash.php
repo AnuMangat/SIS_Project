@@ -148,6 +148,10 @@ echo <<<_END
 			<br>
 			<input type="submit" name="dropcoursebutton" value="Drop course">
 		</form>
+		<br><br>
+		<form action="studenttranscript.php" method="post" id="gototranscript">
+			<input type="submit" name="totranscriptbutton" value="View my transcript">
+		</form>
 
 <?php   
 
