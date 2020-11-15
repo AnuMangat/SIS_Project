@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 15, 2020 at 09:10 PM
+-- Generation Time: Nov 16, 2020 at 12:11 AM
 -- Server version: 10.4.14-MariaDB
 -- PHP Version: 7.4.11
 
@@ -112,8 +112,8 @@ CREATE TABLE `enrolled` (
 --
 
 INSERT INTO `enrolled` (`StudentID`, `CourseID`, `Mark`) VALUES
-(4321, 'BIOL-2071', NULL),
-(4321, 'COMP-1000', NULL);
+(4321, 'BIOL-2071', 77.00),
+(4321, 'COMP-1000', 77.00);
 
 -- --------------------------------------------------------
 
@@ -220,7 +220,7 @@ CREATE TABLE `student_info` (
 
 INSERT INTO `student_info` (`StudentID`, `StudentName`, `Major`, `GPA`) VALUES
 (123, 'Thomas', 'CS', '3.80'),
-(4321, 'Daniel', 'Math', '3.00'),
+(4321, 'Daniel', 'Math', '4.00'),
 (6789, 'Nimo', 'CS', '3.72'),
 (8910, 'Kyle', 'Biology', '3.00'),
 (12314, 'bobobo', 'CS', '3.00'),
@@ -437,8 +437,7 @@ ALTER TABLE `teaches`
 -- Constraints for table `transcript`
 --
 ALTER TABLE `transcript`
-  ADD CONSTRAINT `1` FOREIGN KEY (`CourseID`) REFERENCES `enrolled` (`CourseID`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `2` FOREIGN KEY (`StudentID`) REFERENCES `enrolled` (`StudentID`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `2` FOREIGN KEY (`StudentID`) REFERENCES `student_info` (`StudentID`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
