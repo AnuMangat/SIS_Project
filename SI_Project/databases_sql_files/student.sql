@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 09, 2020 at 10:29 PM
+-- Generation Time: Nov 15, 2020 at 01:54 AM
 -- Server version: 10.4.14-MariaDB
--- PHP Version: 7.2.34
+-- PHP Version: 7.4.11
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -95,47 +95,48 @@ INSERT INTO `admin_personal_info` (`id`, `firstname`, `lastname`, `address`, `ph
 -- --------------------------------------------------------
 
 --
--- Table structure for table `course_info`
+-- Table structure for table `course`
 --
 
-CREATE TABLE `course_info` (
-  `CourseID` varchar(15) NOT NULL,
-  `CourseName` varchar(50) NOT NULL,
-  `Department` varchar(255) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+CREATE TABLE `course` (
+  `CourseID` varchar(15) COLLATE utf8_unicode_ci NOT NULL,
+  `Title` varchar(80) COLLATE utf8_unicode_ci NOT NULL,
+  `Year` int(1) NOT NULL,
+  `Program` varchar(50) COLLATE utf8_unicode_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Dumping data for table `course_info`
+-- Dumping data for table `course`
 --
 
-INSERT INTO `course_info` (`CourseID`, `CourseName`, `Department`) VALUES
-('BIO101', 'Cell Biology', 'Biology'),
-('BIO201', 'Anatomy', 'Biology'),
-('BIO305', 'Metabolism', 'Biology'),
-('CHEM101', 'General Chemistry I', 'Chemistry'),
-('CHEM102', 'General Chemistry II', 'Chemistry'),
-('CHEM105', 'Organic Chemistry', 'Chemistry'),
-('CS100', 'Introduction to Algorithms', 'CS'),
-('CS102', 'Data Structures', 'CS'),
-('CS200', 'Game Design', 'CS'),
-('CS405', 'Artificial Intelligence', 'CS'),
-('HK101', 'Introductory Exercise Physiology', 'Human Kinetics'),
-('HK402', 'Neurophysiology', 'Human Kinetics'),
-('MT101', 'Integral Calculus', 'Math'),
-('MT102', 'Differential Calculus', 'Math'),
-('MT105', 'Linear Algebra', 'Math'),
-('MT202', 'Number Theory', 'Math');
+INSERT INTO `course` (`CourseID`, `Title`, `Year`, `Program`) VALUES
+('BIOL-1101', 'Cell Biology', 1, 'Biology'),
+('BIOL-2071', 'Introductory Microbiology & Techniques', 2, 'Biology'),
+('COMP-1000', 'Key Concepts in Computer Science', 1, 'Computer Science'),
+('COMP-1400', 'Intro to Algorithms and Programming I', 1, 'Computer Science'),
+('COMP-1410', 'Intro to Algorithms and Programming II', 1, 'Computer Science'),
+('COMP-3150', 'Database Management Systems', 3, 'Computer Science'),
+('COMP-4150', 'Advanced Database Design', 4, 'Computer Science');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `enrollment`
+-- Table structure for table `enrolled`
 --
 
-CREATE TABLE `enrollment` (
-  `StudentID` varchar(15) NOT NULL,
-  `CourseID` varchar(50) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+CREATE TABLE `enrolled` (
+  `StudentID` int(11) NOT NULL,
+  `CourseID` varchar(15) COLLATE utf8_unicode_ci NOT NULL,
+  `Mark` float(5,2) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `enrolled`
+--
+
+INSERT INTO `enrolled` (`StudentID`, `CourseID`, `Mark`) VALUES
+(4321, 'BIOL-2071', NULL),
+(4321, 'COMP-1000', NULL);
 
 -- --------------------------------------------------------
 
@@ -155,11 +156,11 @@ CREATE TABLE `faculty_info` (
 --
 
 INSERT INTO `faculty_info` (`FacultyID`, `FirstName`, `LastName`, `Department`) VALUES
-(123, 'Johnny', 'Bravo', 'CS'),
+(123, 'Test', 'Test', 'CS'),
+(454, 'Tom', 'Tom', 'CS'),
 (456, 'Brenda', 'Sanders', 'Math'),
 (789, 'Ken', 'Thomas', 'Bio'),
-(1234, 'Test', 'Test', 'CS'),
-(6345, 'Tom', 'Tom', 'CS');
+(12345, 'Johnny', 'Bravo', 'CS');
 
 -- --------------------------------------------------------
 
@@ -177,9 +178,51 @@ CREATE TABLE `faculty_login` (
 --
 
 INSERT INTO `faculty_login` (`faculty_id`, `password`) VALUES
+(123, 'Test'),
 (456, 'Password'),
-(789, 'admin'),
-(1234, 'test');
+(789, 'admin');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `prerequisite`
+--
+
+CREATE TABLE `prerequisite` (
+  `CourseID` varchar(15) COLLATE utf8_unicode_ci NOT NULL,
+  `PrereqID` varchar(9) COLLATE utf8_unicode_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `prerequisite`
+--
+
+INSERT INTO `prerequisite` (`CourseID`, `PrereqID`) VALUES
+('COMP-1410', 'COMP-1400'),
+('COMP-4150', 'COMP-3150');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `room`
+--
+
+CREATE TABLE `room` (
+  `RoomNo` int(5) NOT NULL,
+  `Building` varchar(40) COLLATE utf8_unicode_ci NOT NULL,
+  `Capacity` int(3) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `room`
+--
+
+INSERT INTO `room` (`RoomNo`, `Building`, `Capacity`) VALUES
+(53, 'Chrysler Hall North', 60),
+(100, 'Odette Building', 300),
+(401, 'Toldo Building', 150),
+(402, 'Toldo Building', 250),
+(1121, 'Erie Hall', 300);
 
 -- --------------------------------------------------------
 
@@ -200,10 +243,10 @@ CREATE TABLE `student_info` (
 
 INSERT INTO `student_info` (`StudentID`, `StudentName`, `Major`, `GPA`) VALUES
 (123, 'Test', 'CS', '3.80'),
+(4321, 'Daniel', 'Math', '3.00'),
 (6789, 'Nimo', 'CS', '3.72'),
 (8910, 'Kyle', 'Bio', '3.00'),
 (12314, 'bobobo', 'CS', '3.00'),
-(12345, 'Daniel', 'Math', '3.00'),
 (88778, 'Bob', 'Math', '3.00');
 
 -- --------------------------------------------------------
@@ -222,11 +265,55 @@ CREATE TABLE `student_login` (
 --
 
 INSERT INTO `student_login` (`student_id`, `password`) VALUES
-(123, 'test'),
+(123, 'Test'),
+(4321, 'heyy'),
 (6789, 'Nimo89'),
 (8910, 'hello'),
-(12345, 'heyy'),
 (88778, 'hihello');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `teaches`
+--
+
+CREATE TABLE `teaches` (
+  `FacultyID` int(11) NOT NULL,
+  `CourseID` varchar(15) COLLATE utf8_unicode_ci NOT NULL,
+  `RoomNo` int(11) NOT NULL,
+  `Building` varchar(40) COLLATE utf8_unicode_ci NOT NULL,
+  `StartTime` time NOT NULL,
+  `EndTime` time NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `teaches`
+--
+
+INSERT INTO `teaches` (`FacultyID`, `CourseID`, `RoomNo`, `Building`, `StartTime`, `EndTime`) VALUES
+(456, 'COMP-1000', 401, 'Toldo Building', '10:00:00', '11:20:00'),
+(789, 'BIOL-2071', 1121, 'Erie Hall', '02:30:00', '03:50:00');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `transcript`
+--
+
+CREATE TABLE `transcript` (
+  `StudentID` int(11) NOT NULL,
+  `CourseID` varchar(15) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `CourseName` varchar(50) NOT NULL,
+  `Semester` varchar(15) NOT NULL,
+  `Mark` decimal(5,2) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `transcript`
+--
+
+INSERT INTO `transcript` (`StudentID`, `CourseID`, `CourseName`, `Semester`, `Mark`) VALUES
+(4321, 'BIOL-2071', 'Introductory Microbiology & Techniques', 'Fall2020', '86.00');
 
 --
 -- Indexes for dumped tables
@@ -251,10 +338,18 @@ ALTER TABLE `admin_personal_info`
   ADD KEY `id constraint personal info` (`id`);
 
 --
--- Indexes for table `course_info`
+-- Indexes for table `course`
 --
-ALTER TABLE `course_info`
-  ADD PRIMARY KEY (`CourseID`);
+ALTER TABLE `course`
+  ADD PRIMARY KEY (`CourseID`),
+  ADD KEY `Year` (`Year`,`Program`);
+
+--
+-- Indexes for table `enrolled`
+--
+ALTER TABLE `enrolled`
+  ADD PRIMARY KEY (`StudentID`,`CourseID`),
+  ADD KEY `CourseID` (`CourseID`);
 
 --
 -- Indexes for table `faculty_info`
@@ -269,6 +364,20 @@ ALTER TABLE `faculty_login`
   ADD PRIMARY KEY (`faculty_id`);
 
 --
+-- Indexes for table `prerequisite`
+--
+ALTER TABLE `prerequisite`
+  ADD PRIMARY KEY (`CourseID`,`PrereqID`),
+  ADD KEY `PrereqID` (`PrereqID`);
+
+--
+-- Indexes for table `room`
+--
+ALTER TABLE `room`
+  ADD PRIMARY KEY (`RoomNo`,`Building`),
+  ADD KEY `RoomNo` (`RoomNo`,`Building`);
+
+--
 -- Indexes for table `student_info`
 --
 ALTER TABLE `student_info`
@@ -279,6 +388,23 @@ ALTER TABLE `student_info`
 --
 ALTER TABLE `student_login`
   ADD PRIMARY KEY (`student_id`);
+
+--
+-- Indexes for table `teaches`
+--
+ALTER TABLE `teaches`
+  ADD PRIMARY KEY (`FacultyID`,`CourseID`,`RoomNo`,`Building`),
+  ADD KEY `StartTime` (`StartTime`),
+  ADD KEY `EndTime` (`EndTime`),
+  ADD KEY `CourseID` (`CourseID`),
+  ADD KEY `RoomNo` (`RoomNo`);
+
+--
+-- Indexes for table `transcript`
+--
+ALTER TABLE `transcript`
+  ADD PRIMARY KEY (`StudentID`,`CourseID`),
+  ADD KEY `1` (`CourseID`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -307,16 +433,45 @@ ALTER TABLE `admin_personal_info`
   ADD CONSTRAINT `id constraint personal info` FOREIGN KEY (`id`) REFERENCES `admin` (`id`);
 
 --
+-- Constraints for table `enrolled`
+--
+ALTER TABLE `enrolled`
+  ADD CONSTRAINT `Enrolled_ibfk_1` FOREIGN KEY (`CourseID`) REFERENCES `teaches` (`CourseID`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `Enrolled_ibfk_2` FOREIGN KEY (`StudentID`) REFERENCES `student_info` (`StudentID`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
 -- Constraints for table `faculty_login`
 --
 ALTER TABLE `faculty_login`
-  ADD CONSTRAINT `faculty_id` FOREIGN KEY (`faculty_id`) REFERENCES `faculty_info` (`FacultyID`) ON DELETE CASCADE;
+  ADD CONSTRAINT `faculty_id` FOREIGN KEY (`faculty_id`) REFERENCES `faculty_info` (`FacultyID`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `prerequisite`
+--
+ALTER TABLE `prerequisite`
+  ADD CONSTRAINT `Prerequisite_ibfk_1` FOREIGN KEY (`CourseID`) REFERENCES `course` (`CourseID`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `Prerequisite_ibfk_2` FOREIGN KEY (`PrereqID`) REFERENCES `course` (`CourseID`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `student_login`
 --
 ALTER TABLE `student_login`
   ADD CONSTRAINT `student_id` FOREIGN KEY (`student_id`) REFERENCES `student_info` (`StudentID`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `teaches`
+--
+ALTER TABLE `teaches`
+  ADD CONSTRAINT `Teaches_ibfk_1` FOREIGN KEY (`FacultyID`) REFERENCES `faculty_info` (`FacultyID`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `Teaches_ibfk_2` FOREIGN KEY (`CourseID`) REFERENCES `course` (`CourseID`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `Teaches_ibfk_3` FOREIGN KEY (`RoomNo`) REFERENCES `room` (`RoomNo`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `transcript`
+--
+ALTER TABLE `transcript`
+  ADD CONSTRAINT `1` FOREIGN KEY (`CourseID`) REFERENCES `enrolled` (`CourseID`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `2` FOREIGN KEY (`StudentID`) REFERENCES `enrolled` (`StudentID`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
