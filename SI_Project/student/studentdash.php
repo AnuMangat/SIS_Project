@@ -18,11 +18,13 @@ $coursesTaught = getTaught($db,$_SESSION['studentid']);
 $studentEnrollment = getEnrollment($db,$_SESSION['studentid']);
 $taughtRows = $coursesTaught->num_rows;
 $enrollmentRows = $studentEnrollment->num_rows;
+$updatedGPA = updateGPA($db,$_SESSION['studentid']);
 
-$currentGPA = calculateGPA($db,$_SESSION['studentid']);
+$currentGPA = fetchGPA($db,$_SESSION['studentid']);
 $j = 0;
 $currentGPA->data_seek($j);
 $GPArow = $currentGPA->fetch_array(MYSQLI_NUM);
+
 ?>
 		<table  border="1" >
 			<tr>
@@ -186,9 +188,9 @@ function getEnrollment($db,$studentid)
 	return null;
 }
 
-function calculateGPA($db,$studentid)
+function fetchGPA($db,$studentid)
 {
-	$sqlGPA="SELECT AVG(Mark) FROM student.transcript t WHERE t.studentID = $studentid";
+	$sqlGPA="SELECT GPA FROM student.student_info s WHERE s.studentID = $studentid";
 	$resultGPA=mysqli_query($db,$sqlGPA);
 	if(!empty($resultGPA) && mysqli_num_rows($resultGPA)>0)
 	{
@@ -196,6 +198,12 @@ function calculateGPA($db,$studentid)
 		return $resultGPA;
 	}
 	return null;
+}
+
+function updateGPA($db,$studentid)
+{
+	$sqlGPA="UPDATE student.student_info s SET GPA = (SELECT AVG(Mark) FROM student.transcript t WHERE t.studentID = $studentid) WHERE s.studentID = $studentid";
+	$resultupdateGPA=mysqli_query($db,$sqlGPA);
 }
 		
 ?>
