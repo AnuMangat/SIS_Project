@@ -24,7 +24,7 @@
 			</tr>
 			</thead>
 			<tbody>
-		_END;
+_END;
 			for ($j = 0 ; $j < $transcriptRows ; ++$j)
 			{
 				$myTranscript->data_seek($j);
@@ -39,13 +39,13 @@
 				<td>$row[3]</td> 
 				<td>$row[4]</td>  
 				</tr>
-			_END;
+_END;
 			}
 		  
 		echo <<<_END
 			</tbody>
 			</table>
-		_END;
+_END;
 			?>
 			<br><input type="submit" name="returntodash" value="Return to Dashboard">
 		</form>

@@ -14,15 +14,16 @@ if($studentInfo == null)
 	echo "Error loading student info!!";
 	return;
 }
-$coursesTaught = getTaught($db,$_SESSION['studentid']);
+
+$coursesTaught = getTaught($db,$currentID);
+$taughtRows = getNumberOfRows($coursesTaught);
+
 $studentEnrollment = getEnrollment($db,$_SESSION['studentid']);
-$taughtRows = $coursesTaught->num_rows;
-$enrollmentRows = $studentEnrollment->num_rows;
+$enrollmentRows = getNumberOfRows($studentEnrollment);
+
 $updatedGPA = updateGPA($db,$_SESSION['studentid']);
 
 $currentGPA = fetchGPA($db,$_SESSION['studentid']);
-$j = 0;
-$currentGPA->data_seek($j);
 $GPArow = $currentGPA->fetch_array(MYSQLI_NUM);
 
 ?>
@@ -63,11 +64,10 @@ echo <<<_END
 			</tr>
 			</thead>
 			<tbody>
-		_END;
+_END;
 		
 			for ($j = 0 ; $j < $taughtRows ; ++$j)
 			{
-				$coursesTaught->data_seek($j);
 				$row = $coursesTaught->fetch_array(MYSQLI_NUM);
 
 			
@@ -83,13 +83,13 @@ echo <<<_END
 				<td>$row[5]</td>   
 				 </td>
 				</tr>
-			_END;
+_END;
 			}
 		  
 		echo <<<_END
 			</tbody>
 			</table>
-		_END;
+_END;
 
 			?>
 			<br><input type="submit" name="enrollmentbutton" value="Go to add courses">
@@ -115,10 +115,10 @@ echo <<<_END
 			</tr>
 			</thead>
 			<tbody>
-		_END;
+_END;
 			for ($j = 0 ; $j < $enrollmentRows ; ++$j)
 			{
-				$studentEnrollment->data_seek($j);
+			//	$studentEnrollment->data_seek($j);
 				$row = $studentEnrollment->fetch_array(MYSQLI_NUM);
 
 			
@@ -135,14 +135,14 @@ echo <<<_END
 				<td>$row[2]</td>   
 				<td><input type="checkbox" name='dropcourse[]' value ='$row[1]'> </td>
 				</tr>
-			_END;
+_END;
 			}
 		  
 		echo <<<_END
 			</tbody>
 			</table>
 
-		_END;
+_END;
 			?>
 			<br>
 			<input type="submit" name="dropcoursebutton" value="Drop course">
@@ -159,54 +159,57 @@ function getStudentInfo($db,$studentid)
 		$sql="SELECT * from student.student_info s
 				INNER JOIN student.student_login sl 
 				ON s.StudentID = sl.student_id 
-				WHERE s.StudentID = $studentid";
+				WHERE s.StudentID = {$studentid}";
 	$result= mysqli_query($db,$sql);
-
-		if(mysqli_num_rows($result)>0)
+	if(mysqli_num_rows($result)>0)
 	{
-			return mysqli_fetch_assoc($result);
-		}
-		return null;
-}        
-
-function getTaught($db,$studentid)
-{
-	$sqltaught="SELECT * FROM student.teaches t INNER JOIN student.faculty_info f ON t.facultyID = f.facultyID INNER JOIN student.course c ON t.CourseID = c.CourseID";
-	$resulttaught=mysqli_query($db,$sqltaught);
-	if(!empty($resulttaught) && mysqli_num_rows($resulttaught)>0)
-	{
-		return $resulttaught;
+		return mysqli_fetch_assoc($result);
 	}
 	return null;
+        	
+}        
+
+function getTaught($db)
+{
+	$sql="SELECT * FROM student.teaches t 
+			INNER JOIN student.faculty_info f 
+			ON t.facultyID = f.facultyID 
+			INNER JOIN student.course c ON t.CourseID = c.CourseID";
+	$result=mysqli_query($db,$sql);	
+	return $result;
+	
 }
 		
 function getEnrollment($db,$studentid)
 {
-	$sqlenrolled="SELECT * FROM student.enrolled e INNER JOIN student.teaches t ON e.courseID = t.courseID INNER JOIN student.course c ON e.courseID = c.courseID INNER JOIN student.faculty_info f ON t.facultyID = f.facultyID WHERE e.StudentID = $studentid";
-	$resultenrolled=mysqli_query($db,$sqlenrolled);
-	if(!empty($resultenrolled) && mysqli_num_rows($resultenrolled)>0)
-	{
-		return $resultenrolled;
-	}
-	return null;
+	$sql="SELECT * FROM student.enrolled e INNER JOIN student.teaches t 
+		 ON e.courseID = t.courseID INNER JOIN student.course c 
+		 ON e.courseID = c.courseID INNER JOIN student.faculty_info f 
+		 ON t.facultyID = f.facultyID WHERE e.StudentID = {$studentid}";
+	$result=mysqli_query($db,$sql);
+	return $result;
+
 }
 
 function fetchGPA($db,$studentid)
 {
-	$sqlGPA="SELECT GPA FROM student.student_info s WHERE s.studentID = $studentid";
-	$resultGPA=mysqli_query($db,$sqlGPA);
-	if(!empty($resultGPA) && mysqli_num_rows($resultGPA)>0)
-	{
-		//updateGPA($db,$resultGPA);
-		return $resultGPA;
-	}
-	return null;
+	$sql="SELECT GPA FROM student.student_info s WHERE s.studentID = {$studentid}";
+	$result=mysqli_query($db,$sql);
+	return $result;
 }
 
 function updateGPA($db,$studentid)
 {
 	$sqlGPA="UPDATE student.student_info s SET GPA = (SELECT AVG(Mark) FROM student.transcript t WHERE t.studentID = $studentid) WHERE s.studentID = $studentid";
 	$resultupdateGPA=mysqli_query($db,$sqlGPA);
+}
+
+function getNumberOfRows($result)
+{
+	if(!empty($result) && mysqli_num_rows($result)>0)
+		return $result->num_rows;
+	return 0;
+
 }
 		
 ?>

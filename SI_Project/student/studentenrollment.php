@@ -44,7 +44,7 @@ echo <<<_END
 			</tr>
 			</thead>
 			<tbody>
-		_END;
+_END;
 			for ($j = 0 ; $j < $availableRows ; ++$j)
 			{
 				$coursesAvailable->data_seek($j);
@@ -63,13 +63,13 @@ echo <<<_END
 				<td>$row[5]</td>   
 				<td><input type="checkbox" name='addcourse[]' value ='$row[1]'> </td>
 				</tr>
-			_END;
+_END;
 			}
 		  
 		echo <<<_END
 			</tbody>
 			</table>
-		_END;
+_END;
 			?>
 
 			<br><input type="submit" name="addcoursebutton" value="Add course">
@@ -113,14 +113,14 @@ echo <<<_END
 				<td>$row[8]</td>
 				<td>$row[2]</td>   
 				</tr>
-			_END;
+_END;
 			}
 		  
 		echo <<<_END
 			</tbody>
 			</table>
 
-		_END;
+_END;
 		?>
 		<form action="studentdash.php" method="post" id="returntodash">
 		<br><input type="submit" name="returntodash" value="Return to Dashboard">
