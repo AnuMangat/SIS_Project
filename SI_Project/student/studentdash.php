@@ -44,11 +44,9 @@ $GPArow = $currentGPA->fetch_array(MYSQLI_NUM);
 			 </tr>
 		</table>
 		<br>
-
 <?php
-
 echo <<<_END
-		<form action="studentdash.php" method="post" id="selectcoursestoadd">
+		<form action="studentenrollment.php" method="post" id="gotoaddcourses">
 		<table  border="1" >
 		<thead>
 			<tr>
@@ -66,6 +64,7 @@ echo <<<_END
 			</thead>
 			<tbody>
 		_END;
+		
 			for ($j = 0 ; $j < $taughtRows ; ++$j)
 			{
 				$coursesTaught->data_seek($j);
@@ -82,7 +81,7 @@ echo <<<_END
 				<td>$row[3]</td>
 				<td>$row[4]</td>
 				<td>$row[5]</td>   
-				<td><input type="checkbox" name='addcourse[]' value ='$row[1]'> </td>
+				 </td>
 				</tr>
 			_END;
 			}
@@ -91,11 +90,11 @@ echo <<<_END
 			</tbody>
 			</table>
 		_END;
+
 			?>
-			<br><input type="submit" name="addcoursebutton" value="Add course">
+			<br><input type="submit" name="enrollmentbutton" value="Go to add courses">
 		</form>
 			<br><br>
-
 	<?php
 	echo <<<_END
 		<form action="studentdash.php" method="post" id="selectcoursestodrop">
@@ -226,18 +225,7 @@ function updateGPA($db,$studentid)
 }
 ?> 
 
-<?php
-	if (isset($_POST['addcoursebutton']) && isset($_POST['addcourse']))
-	{
-		$_POST['addcourse']; //get array of checked values
-    	foreach($_POST['addcourse'] as $desiredcourse)
-    	{
-   			$sql = "INSERT INTO enrolled (`StudentID`, `CourseID`, `Mark`) VALUES ('$currentID', '$desiredcourse', NULL)";
-   			$result= mysqli_query($db,$sql);
-   			if (!$result) echo "INSERT failed: $sql<br>";
-    	}
-    }
-?>
+
 
 <div class="button">
 			<a href="../student_logout.php" class="btn">logout</a>
