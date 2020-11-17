@@ -127,7 +127,7 @@ _END;
 				<tr>
 				<td>$row[1]</td>
 				<td>$row[9]</td>   
-				<td>$row[15] $row[16]</td>   
+				<td>$row[15] $row[16]</td>  
 				<td>$row[5]</td>
 				<td>$row[6]</td>
 				<td>$row[7]</td>
