@@ -53,7 +53,7 @@ echo " welcome ".$_SESSION['facultyid']
 		 <tr>
 				<th>StudentID</th>
 		
-					<td><input type="text" name="StudentID" value="<?php echo $StudentID; ?>"required></td>
+					<td><input type="text" name="StudentID" readonly value="<?php echo $StudentID; ?>"required></td>
 
 			
 		 </tr>
@@ -67,17 +67,17 @@ echo " welcome ".$_SESSION['facultyid']
 		 <tr>
 				<th>Name</th>
 		
-					<td><input type="text" name="name" value="<?php echo $name; ?>"required></td>
+					<td><input type="text" name="name" readonly value="<?php echo $name; ?>"required></td>
 
 			
 		 </tr>
 		 <tr>
 				<th>Major</th>  
-				<td><input type="text" name="major" value="<?php if ( isset( $major ) ) {  echo $major; }?>" required></td>
+				<td><input type="text" name="major" readonly value="<?php if ( isset( $major ) ) {  echo $major; }?>" required></td>
 		 </tr>
 		 <tr>
 				<th>GPA</th>
-				<td><input type="number" name="gpa" value="<?php if ( isset( $gpa ) ) {  echo $gpa; }?>"required></td>
+				<td><input type="number" name="gpa" readonly value="<?php if ( isset( $gpa ) ) {  echo $gpa; }?>"required></td>
 		 </tr>
 		 <tr>
 				<th>Mark</th>

@@ -44,7 +44,7 @@ echo " welcome ".$_SESSION['username']
 		 </tr>
 		 <tr>
 				<th>GPA</th>
-				<td><input type="number" name="gpa" value="<?php if ( isset( $gpa ) ) {  echo $gpa; }?>"required></td>
+				<td><input type="number" name="gpa" readonly value="<?php if ( isset( $gpa ) ) {  echo $gpa; }?>"required></td>
 		 </tr>
 		 <tr>  
 		 	<td colspan="2" align="center">
