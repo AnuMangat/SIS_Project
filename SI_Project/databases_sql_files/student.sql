@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 16, 2020 at 12:11 AM
+-- Generation Time: Nov 17, 2020 at 03:32 AM
 -- Server version: 10.4.14-MariaDB
 -- PHP Version: 7.4.11
 
@@ -39,10 +39,7 @@ CREATE TABLE `admin` (
 
 INSERT INTO `admin` (`id`, `username`, `password`) VALUES
 (1, 'admin', 'admin'),
-(2, 'admin2', 'Test'),
-(3, 'moderator', 'Test'),
-(4, 'Dora', 'Test'),
-(5, 'Tony', 'Test');
+(2, 'admin2', 'Test');
 
 -- --------------------------------------------------------
 
@@ -64,10 +61,7 @@ CREATE TABLE `admin_info` (
 
 INSERT INTO `admin_info` (`id`, `name`, `department`, `address`, `phone`) VALUES
 (1, 'Bob Thompson', 'Math', '123 Main St.', '5136451457'),
-(2, 'Vincent Smith', 'CS', '678 East St.', '6587451485'),
-(3, 'Yuri', 'CS', '456 West St.', '7565487498'),
-(4, 'Dora', 'Biology', '7546 South St.', '8656662415'),
-(5, 'Tony', 'Chemistry', '9846 North St.', '9871235481');
+(2, 'Vincent Smith', 'CS', '678 East St.', '6587451485');
 
 -- --------------------------------------------------------
 
@@ -112,7 +106,8 @@ CREATE TABLE `enrolled` (
 --
 
 INSERT INTO `enrolled` (`StudentID`, `CourseID`, `Mark`) VALUES
-(4321, 'BIOL-2071', 77.00),
+(123, 'BIOL-2071', 75.00),
+(4321, 'BIOL-2071', 81.00),
 (4321, 'COMP-1000', 77.00);
 
 -- --------------------------------------------------------
@@ -219,12 +214,12 @@ CREATE TABLE `student_info` (
 --
 
 INSERT INTO `student_info` (`StudentID`, `StudentName`, `Major`, `GPA`) VALUES
-(123, 'Thomas', 'CS', '3.80'),
-(4321, 'Daniel', 'Math', '4.00'),
-(6789, 'Nimo', 'CS', '3.72'),
-(8910, 'Kyle', 'Biology', '3.00'),
-(12314, 'bobobo', 'CS', '3.00'),
-(88778, 'Bob', 'Math', '3.00');
+(123, 'Thomas', 'CS', NULL),
+(4321, 'Daniel', 'Math', '86.00'),
+(6789, 'Nimo', 'CS', '88.00'),
+(8910, 'Kyle', 'Biology', '55.00'),
+(12314, 'bobobo', 'CS', '68.00'),
+(88778, 'Bob', 'Math', '76.00');
 
 -- --------------------------------------------------------
 
@@ -292,7 +287,7 @@ CREATE TABLE `transcript` (
 --
 
 INSERT INTO `transcript` (`StudentID`, `CourseID`, `CourseName`, `Semester`, `Mark`) VALUES
-(4321, 'BIOL-2071', 'Introductory Microbiology & Techniques', 'Fall2020', '86.00');
+(4321, 'BIOL-2071', 'Introductory Microbiology & Techniques', 'Fall2020', '81.00');
 
 --
 -- Indexes for dumped tables
