@@ -1,19 +1,22 @@
 /*form style*/
 body 
 {
-	background-color: whitesmoke;
+	
+	 background-image: url(pic4.jpeg);
+	 background-color: white;
+	
 }
 h1
 {
 	text-align: center;
 	font-size: 40px;
-	color: #23527c;
+	color: 	#FFFAFA;
 }
 form
 {
 	margin: 20px auto;
 	width: 320px;
-	color: #23527c;
+	color: #FF4500;
 }
 input
 {
@@ -25,8 +28,8 @@ input[type="text"]
 	display: block;
 	margin-bottom: 25px;
 	width: 100%;
-	border:2px #23527c;
-	background: #FAF6D9 
+	border:2px #FF8C00;
+	background: #FFFACD;
 }
 
 input[type="password"]
@@ -34,8 +37,8 @@ input[type="password"]
 	display: block;
 	margin-bottom: 25px;
 	width: 100%;
-	border:2px #23527c;
-	background: #FAF6D9 
+	border:2px #FF4500;
+	background: #FFFACD;
 }
 
 
@@ -44,7 +47,7 @@ input[type="submit"]
 	display: block;
 	margin-bottom: 25px;
 	width: 100%;
-	border:2px #23527c;
+	border:2px #FFFACD;
 
 }
 
@@ -52,10 +55,10 @@ input[type="submit"]
 {
 	width: 344px;
 	height: 45px;
-	background-color: #23527c;
-	color: white;
+	background-color: #FF4500;
+	color: #FFDAB9;
 }
 input:focus
 {
-	background: white;
+	background: #FFDAB9;
 }

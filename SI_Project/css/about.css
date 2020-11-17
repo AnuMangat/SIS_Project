@@ -4,9 +4,9 @@
 	font-family:century Gothic; 
 }
 header{
-	background-image:linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)),url(pic.jpeg);
+	background-image:linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)),url(pic2.jpg);
 	
-	height: 100vh;
+	height: 30vh;
 	background-size: cover;
 	background-position: center;
 }
@@ -15,6 +15,7 @@ ul{
 	float: right;
 	margin-top: 25px;
 }
+
 ul li{
 	display: inline-block;
 }
@@ -25,7 +26,9 @@ ul li a{
 	border: 1px solid transparent;
 	transition: 0.6s ease;
 }
-
+ol.d {
+  list-style-type: square;
+}
 ul li a:hover{
 	background-color: #fff;
 	color: #000;
@@ -34,13 +37,17 @@ ul li.active a{
 	background-color: #fff;
  	color: #000;
  }
+ div.d {
+  text-align: justify;
+  padding: 7px 30px;
+} 
 .main{
 	max-width: 1200px;
 	margin:auto;
 }
 .title{
 	position: absolute;
-	top: 50%;
+	top: 20%;
 	left: 50%;
 	transform: translate(-50%,-50%);
 

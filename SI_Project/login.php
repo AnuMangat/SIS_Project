@@ -7,7 +7,7 @@
 </head>
  
  
-<h4><a href="index.php" style="float: left;margin-left: 50px; margin-top:5px ;font-size: 20px;color:#23527c;">Back </a></h4>
+<h4><a href="index.php" style="float: left;margin-left: 50px; margin-top:5px ;font-size: 20px;color:#FFFAFA;">Back </a></h4>
 
 
 <form action="login.php" method="POST">
