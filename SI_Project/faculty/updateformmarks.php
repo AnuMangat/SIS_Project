@@ -77,7 +77,7 @@ echo " welcome ".$_SESSION['facultyid']
 		 </tr>
 		 <tr>
 				<th>GPA</th>
-				<td><input type="number" min="1" max="4" step=".01" name="gpa" value="<?php if ( isset( $gpa ) ) {  echo $gpa; }?>"required></td>
+				<td><input type="number" name="gpa" value="<?php if ( isset( $gpa ) ) {  echo $gpa; }?>"required></td>
 		 </tr>
 		 <tr>
 				<th>Mark</th>
