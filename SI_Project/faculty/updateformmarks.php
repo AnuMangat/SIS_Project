@@ -47,20 +47,13 @@ echo " welcome ".$_SESSION['facultyid']
 
 
 
-
+<center><h1>Student Information<h1></center>
 	<form method="POST" action="updatedatamarks.php" enctype="multipart/form-data">
 	<table border="1" align="center" style="width:50%;font-size: 30px;">
 		 <tr>
 				<th>StudentID</th>
 		
 					<td><input type="text" name="StudentID" readonly value="<?php echo $StudentID; ?>"required></td>
-
-			
-		 </tr>
-		 <tr>
-				<th>CourseID</th>
-		
-					<td><input type="text" name="CourseID" value="<?php echo $CourseID; ?>"required></td>
 
 			
 		 </tr>
@@ -76,9 +69,21 @@ echo " welcome ".$_SESSION['facultyid']
 				<td><input type="text" name="major" readonly value="<?php if ( isset( $major ) ) {  echo $major; }?>" required></td>
 		 </tr>
 		 <tr>
-				<th>GPA</th>
+				<th>GPA (Auto-Calculated)</th>
 				<td><input type="number" name="gpa" readonly value="<?php if ( isset( $gpa ) ) {  echo $gpa; }?>"required></td>
 		 </tr>
+		 </table>
+		 
+<center><h1>Enter Student Course Grades<h1></center>		 
+	<table border="1" align="center" style="width:50%;font-size: 30px;">		 
+		 
+		 <tr>
+				<th>CourseID</th>
+		
+					<td><input type="text" name="CourseID" value="<?php echo $CourseID; ?>"required></td>
+
+			
+		  </tr>
 		 <tr>
 				<th>Mark</th>
 		
@@ -88,7 +93,7 @@ echo " welcome ".$_SESSION['facultyid']
 		 </tr>
 		 <tr>  
 		 	<td colspan="2" align="center">
-		 		<input type="text" name="id" value="<?php echo $id;?>"/>
+		 		<input type="text" name="id" readonly value="<?php echo $id;?>"/>
 		 		<input height="30%" type="submit" name="Submit" value="Submit">
 		 	</td>
 		 </tr>

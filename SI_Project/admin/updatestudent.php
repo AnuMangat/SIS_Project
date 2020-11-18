@@ -44,6 +44,8 @@ echo " welcome ".$_SESSION['username']
 		<th>Student Name</th>
 		<th>Major</th>
 		<th>GPA</th>
+		<th>Address</th>
+		<th>Phone</th>
 		<th>Edit</th>
 	</tr>
 	</body>
@@ -70,7 +72,9 @@ echo " welcome ".$_SESSION['username']
 				<td><?php echo $result['StudentID'];?></td>    
 				<td><?php  echo $result['StudentName'];?></td>
 				<td><?php  echo $result['Major'];?></td>
-                                <td><?php  echo $result['GPA'];?></td>
+                <td><?php  echo $result['GPA'];?></td>
+                <td><?php  echo $result['address'];?></td>
+                <td><?php  echo $result['phone'];?></td>				
 				<td><a href="updateform.php?studentid=<?php echo $result['StudentID'];?> ">Edit</a></td> 
 			</tr>
 			<?php

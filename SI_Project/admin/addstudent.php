@@ -42,10 +42,18 @@ echo " welcome ".$_SESSION['username']
 				<td><input type="text" name="Major" placeholder="Enter Student Major" required></td>
 		 </tr>
                   <tr>
-				<th>GPA</th>
+				<th>GPA (initial input)</th>
 				<td><input type="text" name="GPA" placeholder="Enter Student GPA" required></td>
 		 </tr>
-		 
+		 </tr>
+                  <tr>
+				<th>Address</th>
+				<td><input type="text" name="Address" placeholder="Enter Student Address" required></td>
+		 </tr>		 </tr>
+                  <tr>
+				<th>Phone</th>
+				<td><input type="text" name="Phone" placeholder="Enter Student Phone" required></td>
+		 </tr>		 
 		
 		 <tr>  
 		 	<td colspan="2" align="center">
@@ -64,11 +72,11 @@ if(isset($_POST['Submit']))
 	$StudentName=$_POST['StudentName'];
 	$Major=$_POST['Major'];
 	$GPA=$_POST['GPA'];
+	$Address=$_POST['Address'];	
+	$Phone=$_POST['Phone'];
 	
-	
-	// $sql="INSERT INTO student (rollno,name, city, pcon, class,image) VALUES ('$ROLLNO','$NAME','$CITY','$PCON','$CLASS','$IMAGE')";
 
-	$qry = "INSERT INTO `student`.`student_info`(`StudentID`, `StudentName`, `Major`,`GPA`) VALUES ('$StudentID','$StudentName','$Major','$GPA')";
+	$qry = "INSERT INTO `student`.`student_info`(`StudentID`, `StudentName`, `Major`,`GPA`,`Address`,`Phone`) VALUES ('$StudentID','$StudentName','$Major','$GPA','$Address','$Phone')";
 
    $run = mysqli_query($db, $qry);
 
