@@ -26,13 +26,13 @@
 <center><h1>About This Project</h1><center>
 
 <p>
-
+ <div class="d">
 The student management system is a project where you act as an administrator in which you are able to add/delete/update student and faculty records.
 
 You have the ability to log-in as a student and view your details, along with adding/deleting/updating courses.
 
 You can also log in as a faculty member and  view your details and look into the courses you are scheduled to teach.</p>
-   
+   </div>
    <center><h1>Project Execution Instructions</h1><center>
   <div class="d">
 <p>You can execute the project and use our Student Database Management System we have developed on your localhost by using tools such as XAMPP control, phpmyAdmin and Apache Servers. First download the latest version of XAMPP and also MySQL.</p>

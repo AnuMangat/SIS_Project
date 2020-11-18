@@ -37,10 +37,20 @@ ul li.active a{
 	background-color: #fff;
  	color: #000;
  }
+ 
  div.d {
   text-align: justify;
   padding: 7px 30px;
+  font-weight: 900;
+  color: black;
+  
 } 
+div.center {
+  margin: auto;
+  width: 60%;
+  border: 3px solid white;
+  padding: 10px;
+}
 .main{
 	max-width: 1200px;
 	margin:auto;
