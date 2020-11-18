@@ -7,6 +7,14 @@
 	<link rel="stylesheet" type="text/css" href="../css/headerstyle.css">
 </head>
 <body>
+	<div class="sidenav">
+<p style="color:#743d8e" font-family:century Gothic; align="center">Welcome</p>
+ 
+  <a href="studentenrollment.php">Go To Add Courses</a>
+  <a href="studenttranscript.php">View my Transcript</a>
+  <a href="../student_logout.php" class="btn">Logout</a>
+</div>
+
 
 <?php
 include ('../dbconnect.php');
