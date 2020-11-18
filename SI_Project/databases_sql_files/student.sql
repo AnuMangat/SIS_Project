@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 17, 2020 at 04:26 AM
+-- Generation Time: Nov 18, 2020 at 05:29 AM
 -- Server version: 10.4.14-MariaDB
 -- PHP Version: 7.4.11
 
@@ -39,7 +39,10 @@ CREATE TABLE `admin` (
 
 INSERT INTO `admin` (`id`, `username`, `password`) VALUES
 (1, 'admin', 'admin'),
-(2, 'admin2', 'Test');
+(2, 'Jdoe', 'Test'),
+(3, 'Johndoe', 'Test'),
+(4, 'Janedoe', 'Test'),
+(5, 'Blee', 'Test');
 
 -- --------------------------------------------------------
 
@@ -60,8 +63,11 @@ CREATE TABLE `admin_info` (
 --
 
 INSERT INTO `admin_info` (`id`, `name`, `department`, `address`, `phone`) VALUES
-(1, 'Bob Thompson', 'Math', '123 Main St.', '5136451457'),
-(2, 'Vincent Smith', 'CS', '678 East St.', '6587451485');
+(1, 'Bob Thompson', 'Mathematics & Statistics', '123 Main St.', '5136451457'),
+(2, 'Vincent Smith', 'Computer Science', '678 East St.', '6587451485'),
+(3, 'John Doe', 'Biology', '456 West St.', '5195469344'),
+(4, 'Jane Smith', 'Chemistry', '563 North St.', '5196675544'),
+(5, 'Ben Lee', 'Physics', '785 South St.', '2266573498');
 
 -- --------------------------------------------------------
 
@@ -82,12 +88,36 @@ CREATE TABLE `course` (
 
 INSERT INTO `course` (`CourseID`, `Title`, `Year`, `Program`) VALUES
 ('BIOL-1101', 'Cell Biology', 1, 'Biology'),
+('BIOL-1111', 'Biological Diversity', 1, 'Biology'),
 ('BIOL-2071', 'Introductory Microbiology & Techniques', 2, 'Biology'),
+('BIOL-2111', 'Genetics', 2, 'Biology'),
+('BIOL-3142', 'Evolution', 3, 'Biology'),
+('BIOL-4252', ' Evolutionary Endocrinology', 4, 'Biology'),
+('CHEM-1000', 'Introduction to Chemistry', 1, 'Chemistry'),
+('CHEM-1003', 'Alchemy to Chemistry: Science Through the Ages', 1, 'Chemistry'),
+('CHEM-2300', 'Introductory Organic Chemistry', 2, 'Chemistry'),
+('CHEM-2310', 'Introductory Organic Chemistry II', 2, 'Chemistry'),
+('CHEM-3300', 'Spectroscopic Structure Identification', 3, 'Chemistry'),
+('CHEM-4400', 'Kinetics and Photochemistry', 4, 'Chemistry'),
 ('COMP-1000', 'Key Concepts in Computer Science', 1, 'Computer Science'),
 ('COMP-1400', 'Intro to Algorithms and Programming I', 1, 'Computer Science'),
 ('COMP-1410', 'Intro to Algorithms and Programming II', 1, 'Computer Science'),
+('COMP-2120', 'Object-Oriented Programming Using Java', 2, 'Computer Science'),
+('COMP-2540', 'Data Structures and Algorithms', 2, 'Computer Science'),
 ('COMP-3150', 'Database Management Systems', 3, 'Computer Science'),
-('COMP-4150', 'Advanced Database Design', 4, 'Computer Science');
+('COMP-4150', 'Advanced Database Design', 4, 'Computer Science'),
+('MATH-1720', 'Differential Calculus', 1, 'Mathematics & Statistics'),
+('MATH-1730', 'Integral Calculus', 1, 'Mathematics & Statistics'),
+('MATH-2250', 'Linear Algebra II', 2, 'Mathematics & Statistics'),
+('MATH-2790', 'Differential Equations', 2, 'Mathematics & Statistics'),
+('MATH-3270', 'Number Theory', 3, 'Mathematics & Statistics'),
+('MATH-4570', 'Functional Analysis', 4, 'Mathematics & Statistics'),
+('PHYS-1000', 'Introduction to Astronomy I', 1, 'Physics'),
+('PHYS-1010', 'Introduction to Astronomy II', 1, 'Physics'),
+('PHYS-2250', 'Optics', 2, 'Physics'),
+('PHYS-2500', 'Intermediate Mechanics', 2, 'Physics'),
+('PHYS-3200', 'Electromagnetic Theory', 3, 'Physics'),
+('PHYS-4100', 'Quantum Mechanics I', 4, 'Physics');
 
 -- --------------------------------------------------------
 
@@ -106,9 +136,8 @@ CREATE TABLE `enrolled` (
 --
 
 INSERT INTO `enrolled` (`StudentID`, `CourseID`, `Mark`) VALUES
-(123, 'BIOL-2071', 75.00),
-(4321, 'BIOL-2071', 81.00),
-(4321, 'COMP-1000', 77.00);
+(123, 'BIOL-2071', 76.00),
+(4321, 'BIOL-2071', 81.00);
 
 -- --------------------------------------------------------
 
@@ -128,11 +157,11 @@ CREATE TABLE `faculty_info` (
 --
 
 INSERT INTO `faculty_info` (`FacultyID`, `FirstName`, `LastName`, `Department`) VALUES
-(123, 'Joe', 'Roberts', 'CS'),
-(454, 'Tom', 'Tom', 'Chemistry'),
-(456, 'Brenda', 'Sanders', 'Math'),
+(123, 'John', 'Carters', 'Computer Science'),
+(454, 'Tom', 'Johnson', 'Chemistry'),
+(456, 'Brenda', 'Sanders', 'Mathematics & Statistics'),
 (789, 'Ken', 'Thomas', 'Biology'),
-(12345, 'Johnny', 'Bravo', 'Physics');
+(12345, 'Alan', 'Williams', 'Physics');
 
 -- --------------------------------------------------------
 
@@ -208,20 +237,21 @@ CREATE TABLE `student_info` (
   `StudentID` int(11) NOT NULL,
   `StudentName` varchar(50) NOT NULL,
   `Major` varchar(50) DEFAULT NULL,
-  `GPA` decimal(5,2) DEFAULT NULL
+  `GPA` decimal(5,2) DEFAULT NULL,
+  `address` varchar(255) DEFAULT NULL,
+  `phone` varchar(20) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `student_info`
 --
 
-INSERT INTO `student_info` (`StudentID`, `StudentName`, `Major`, `GPA`) VALUES
-(123, 'Thomas', 'CS', '77.50'),
-(4321, 'Daniel', 'Math', '86.00'),
-(6789, 'Nimo', 'CS', '88.00'),
-(8910, 'Kyle', 'Biology', '55.00'),
-(12314, 'bobobo', 'CS', '68.00'),
-(88778, 'Bob', 'Math', '76.00');
+INSERT INTO `student_info` (`StudentID`, `StudentName`, `Major`, `GPA`, `address`, `phone`) VALUES
+(123, 'Thomas Wayne', 'Computer Science', '78.00', '423 California St.', '5195420044'),
+(4321, 'Daniel Crowe', 'Mathematics & Statistics', '81.00', '654 Kay Ave.', '5199984324'),
+(6789, 'Nathan Smith', 'Physics', '88.00', '344 Moi St.', '5198854785'),
+(8910, 'Kyle Kenneth', 'Chemistry', '55.00', '976 Tecumseh Ave.', '5197269888'),
+(88778, 'Bob Yung', 'Biology', '76.00', '125 Cameron St.', '5190094568');
 
 -- --------------------------------------------------------
 
@@ -266,9 +296,16 @@ CREATE TABLE `teaches` (
 --
 
 INSERT INTO `teaches` (`FacultyID`, `CourseID`, `RoomNo`, `Building`, `StartTime`, `EndTime`, `Title`) VALUES
-(123, 'COMP-4150', 53, 'Chrysler Hall North', '08:30:00', '09:50:00', 'Advanced Database Design'),
-(456, 'COMP-1000', 401, 'Toldo Building', '10:00:00', '11:20:00', 'Key Concepts in Computer Science'),
-(789, 'BIOL-2071', 1121, 'Erie Hall', '02:30:00', '03:50:00', 'Introductory Microbiology & Techniques');
+(123, 'COMP-3150', 402, 'Toldo Building', '10:00:00', '11:20:00', 'Database Management Systems'),
+(123, 'COMP-4150', 402, 'Toldo Building', '01:00:00', '01:50:00', 'Advanced Database Design'),
+(454, 'CHEM-1003', 402, 'Toldo Building', '08:30:00', '09:50:00', 'Alchemy to Chemistry: Science Through the Ages'),
+(454, 'CHEM-3300', 53, 'Chrysler Hall North', '08:30:00', '09:50:00', 'Spectroscopic Structure Identification'),
+(456, 'MATH-1720', 401, 'Toldo Building', '10:00:00', '11:20:00', 'Differential Calculus'),
+(456, 'MATH-1730', 1121, 'Erie Hall', '10:00:00', '11:20:00', 'Integral Calculus'),
+(789, 'BIOL-2071', 1121, 'Erie Hall', '02:30:00', '03:50:00', 'Introductory Microbiology & Techniques'),
+(789, 'BIOL-2111', 53, 'Chrysler Hall North', '10:00:00', '11:20:00', 'Genetics'),
+(12345, 'PHYS-2250', 53, 'Chrysler Hall North', '10:00:00', '11:20:00', 'Optics'),
+(12345, 'PHYS-2500', 1121, 'Erie Hall', '01:00:00', '01:50:00', 'Intermediate Mechanics');
 
 -- --------------------------------------------------------
 
@@ -289,9 +326,16 @@ CREATE TABLE `transcript` (
 --
 
 INSERT INTO `transcript` (`StudentID`, `CourseID`, `CourseName`, `Semester`, `Mark`) VALUES
-(123, 'PHYS-1000', 'Introduction to Astronomy I', '2018Fall', '80.00'),
-(123, 'PHYS-1010', 'Introduction to Astronomy II', '2018Winter', '75.00'),
-(4321, 'BIOL-2071', 'Introductory Microbiology & Techniques', 'Fall2020', '81.00');
+(123, 'COMP-1000', 'Key Concepts in Computer Science', '2018Fall', '79.00'),
+(123, 'COMP-1400', 'Intro to Algorithms and Programming I', '2019Winter', '77.00'),
+(4321, 'MATH-1720', 'Differential Calculus', '2018Fall', '67.00'),
+(4321, 'MATH-2250', 'Linear Algebra II', '2019Winter', '81.00'),
+(6789, 'PHYS-1000', 'Introduction to Astronomy I', '2018Fall', '84.00'),
+(6789, 'PHYS-2250', 'Optics', '2019Fall', '75.00'),
+(8910, 'CHEM-1000', 'Introduction to Chemistry', '2017Fall', '72.00'),
+(8910, 'CHEM-2300', 'Introductory Organic Chemistry', '2018Fall', '76.00'),
+(88778, 'BIOL-1101', 'Cell Biology', 'Fall2018', '89.00'),
+(88778, 'BIOL-2111', 'Genetics', 'Fall2019', '91.00');
 
 --
 -- Indexes for dumped tables
