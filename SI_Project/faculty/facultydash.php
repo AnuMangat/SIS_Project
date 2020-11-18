@@ -19,7 +19,7 @@ if($coursesTaught == null)
     echo "Error loading faculty info!";
     return;
 }
-
+$coursesTaught->fetch_all(MYSQLI_ASSOC);
 
 if($facultyInfo == null)
 {
@@ -67,12 +67,21 @@ if($facultyInfo == null)
 	
 <table align="center" width="20%" border="1" style="margin-top: 10px";>
 	<tr style="background-color: #000;color: #fff; " >
-		<th>Course ID</th><tr><td><center><?php echo $coursesTaught['CourseID']; ?></center></td></tr>
-		<th>Course Name</th><tr><td><center><?php echo $coursesTaught['Title']; ?></center></td></tr>
-		<th>Building</th><tr><td><center><?php echo $coursesTaught['Building']; ?></center></td></tr>
-		<th>Room</th><tr><td><center><?php echo $coursesTaught['RoomNo']; ?></center></td></tr>
-		<th>Time Slot</th><tr><td><center><?php echo $coursesTaught['StartTime']; ?></center></td></tr>
-	</tr>	
+		<th>Course ID</th><th>Course Name</th><th>Building</th><th>Room</th><th>Time Slot</th>
+		
+		<?php
+		foreach ($coursesTaught as $ct)
+		{
+			echo "<tr>";
+			echo "<td><center>" . $ct['CourseID']  . "</center></td>";
+			echo "<td><center>" . $ct['Title']  . "</center></td>";
+			echo "<td><center>" . $ct['Building']  . "</center></td>";
+			echo "<td><center>" . $ct['RoomNo']  . "</center></td>";
+			echo "<td><center>" . $ct['StartTime'] . "</center></td>";
+			echo "</tr>";
+		}
+		?>
+</tr>
 </table>		
 
 <div class="courses" align="center">
@@ -141,14 +150,9 @@ function getFacultyInfo($db,$facultyid)
         $sql="SELECT * from student.faculty_info f
                INNER JOIN student.faculty_login fl 
                ON f.FacultyID = fl.faculty_id 
-               WHERE f.FacultyID = $facultyid";
+               WHERE f.FacultyID = {$facultyid}";
 	$result= mysqli_query($db,$sql);
-
-        if(mysqli_num_rows($result)>0)
-	{
-            return mysqli_fetch_assoc($result);
-        }
-        return null;
+	return mysqli_fetch_assoc($result);
 }        
         
         
@@ -157,21 +161,11 @@ function getFacultyInfo($db,$facultyid)
 <?php        
 function getCoursesTaught($db,$facultyid)
 {
-        $sql="SELECT * from student.teaches t
-               INNER JOIN student.faculty_login fl 
-               ON t.FacultyID = fl.faculty_id 
-               WHERE t.FacultyID = $facultyid";
-	$result= mysqli_query($db,$sql);
-
-        if(mysqli_num_rows($result)>0)
-	{
-            return mysqli_fetch_assoc($result);
-        }
-        return null;
+    $sql="SELECT * from student.teaches WHERE FacultyID = {$facultyid}";
+	return mysqli_query($db,$sql);
+    
 }        
-        
-        
-  ?>
+     ?>
 
 <center>
 <div class="buttonNew">
