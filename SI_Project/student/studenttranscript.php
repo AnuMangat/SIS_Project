@@ -1,3 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+	<title>Student Management System</title> 
+	<link rel="stylesheet" type="text/css" href="../css/headerstyle.css">
+</head>
+<body>
+
+
+
+
 <?php
 	include ('../dbconnect.php');
 	session_start();
@@ -7,11 +19,16 @@
 	}
 
 	$myTranscript = getTranscript($db,$_SESSION['studentid']);
+	if(!empty($myTranscript) && mysqli_num_rows($myTranscript)>0)
 	$transcriptRows = $myTranscript->num_rows;
+	else
+	$transcriptRows = 0;
+
+	
 
 	echo <<<_END
 		<form action="studentdash.php" method="post" id="returntodash">
-		<table  border="1" >
+		<table  border="1" align="center">
 		<thead>
 			<tr>
 			<th colspan="4" ><h4>My Current Transcript<h4></th>
@@ -63,3 +80,6 @@ _END;
 		return null;
 	}
 ?>
+
+</body>
+</html>

@@ -1,3 +1,13 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+	<title>Student Management System</title> 
+	<link rel="stylesheet" type="text/css" href="../css/headerstyle.css">
+</head>
+<body>
+
 <?php
 include ('../dbconnect.php');
 session_start();
@@ -27,7 +37,14 @@ $currentGPA = fetchGPA($db,$_SESSION['studentid']);
 $GPArow = $currentGPA->fetch_array(MYSQLI_NUM);
 
 ?>
-		<table  border="1" >
+
+
+	<div class="Studenttitle" align="center">
+		<h1>Student Dashboard</h1>
+
+	</div>
+
+		<table  id="stdtable" border="1" align="center" style="width: 30%;font-size: 30px;">
 			<tr>
 				<th colspan="3" ><h4>Your Student Info<h4></th>
 			</tr>
@@ -45,10 +62,11 @@ $GPArow = $currentGPA->fetch_array(MYSQLI_NUM);
 			 </tr>
 		</table>
 		<br>
+		
 <?php
 echo <<<_END
-		<form action="studentenrollment.php" method="post" id="gotoaddcourses">
-		<table  border="1" >
+		<form action="studentenrollment.php" method="post" align="center" id="stdtable">
+		<table  border="1"  align="center" >
 		<thead>
 			<tr>
 			<th colspan="7" ><h4>Courses On Offer<h4></th>
@@ -97,8 +115,8 @@ _END;
 			<br><br>
 	<?php
 	echo <<<_END
-		<form action="studentdash.php" method="post" id="selectcoursestodrop">
-		<table  border="1" >
+		<form action="studentdash.php" method="post" align="center" id="stdtable">
+		<table  border="1"  align="center" >
 		<thead>
 			<tr>
 			<th colspan="8" ><h4>Your Current Enrollment<h4></th>
@@ -148,7 +166,7 @@ _END;
 			<input type="submit" name="dropcoursebutton" value="Drop course">
 		</form>
 		<br><br>
-		<form action="studenttranscript.php" method="post" id="gototranscript">
+		<form action="studenttranscript.php" method="post" align="center" id="stdtable">
 			<input type="submit" name="totranscriptbutton" value="View my transcript">
 		</form>
 
@@ -227,9 +245,14 @@ function getNumberOfRows($result)
  
 }
 ?> 
+<br>
+<br>
 
-
-
-<div class="button">
+<center>
+<div class="buttonNew">
 			<a href="../student_logout.php" class="btn">logout</a>
 </div>
+</center>
+
+</body>
+</html>

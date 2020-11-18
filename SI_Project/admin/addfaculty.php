@@ -14,7 +14,20 @@ echo " welcome ".$_SESSION['username']
 	
 	include('header.php');
 	include('titleheader.php');
+	
 ?>
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Student Management System</title> 
+</head>
+<body>
+
+	<div class="admintitle" align="center">
+		<h1>Add Faculty Details</h1>
+
+	</div>
+
 <form method="POST" action="addfaculty.php" enctype="multipart/form-data">
 	<table border="1" align="center" style="width:50%;font-size: 30px;">
 		 <tr>
@@ -42,6 +55,8 @@ echo " welcome ".$_SESSION['username']
 		 </tr>
 	</table>
 </form>
+</body>
+</html>
 	
 <?php
 if(isset($_POST['Submit']))

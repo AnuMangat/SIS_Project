@@ -1,3 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+	<title>Student Management System</title> 
+	<link rel="stylesheet" type="text/css" href="../css/headerstyle.css">
+</head>
+<body>
+
+	<div class="Studenttitle" align="center">
+		<h1>Add Course</h1>
+
+	</div>
+
+
+
 <?php
 include ('../dbconnect.php');
 session_start();
@@ -27,8 +43,8 @@ else
 	$enrollmentRows = 0;
 
 echo <<<_END
-		<form action="studentenrollment.php" method="post" id="selectcoursestoadd">
-		<table  border="1" >
+		<form action="studentenrollment.php" method="post" align="center" id="selectcoursestoadd">
+		<table  border="1" align="center" >
 		<thead>
 			<tr>
 			<th colspan="7" ><h4>Add Courses That You Meet The Prerequisites For<h4></th>
@@ -72,12 +88,13 @@ _END;
 _END;
 			?>
 
+
 			<br><input type="submit" name="addcoursebutton" value="Add course">
 		</form>
 			<br><br>
 
 		
-		<table  border="1" >
+		<table  border="1" align="center" >
 		<thead>
 			<tr>
 			<th colspan="8" ><h4>Your Current Enrollment<h4></th>
@@ -122,12 +139,11 @@ _END;
 
 _END;
 		?>
-		<form action="studentdash.php" method="post" id="returntodash">
+		<form action="studentdash.php" method="post" align="center" id="returntodash">
 		<br><input type="submit" name="returntodash" value="Return to Dashboard">
 		</form>
 			<br><br>
 		
-
 
 <?php
 
@@ -179,3 +195,6 @@ function getEnrollment($db,$studentid)
     }
 
 ?>
+
+</body>
+</html>

@@ -13,7 +13,20 @@ echo " welcome ".$_SESSION['username']
 <?php
 	include('header.php');
 	include('titleheader.php');
+	
 ?>   
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Student Management System</title> 
+</head>
+<body>
+
+	<div class="admintitle" align="center">
+		<h1>Update Faculty Details</h1>
+
+	</div>
+
 <form action="updatefaculty.php" method="POST">
 	<table align="center">
 	<tr>
@@ -34,6 +47,8 @@ echo " welcome ".$_SESSION['username']
 		<th>Edit</th>
 	</tr>
 	
+	</body >
+</html> 
 <?php 
  if(isset($_POST['Submit']))
 {

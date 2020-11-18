@@ -39,7 +39,7 @@ if($facultyInfo == null)
 </head>
 <body>
 
-	<div class="facultytitle" align="center">
+	<div class="facultytitle" align="center" >
 		<h1>Faculty Dashboard</h1>
 
 	</div>

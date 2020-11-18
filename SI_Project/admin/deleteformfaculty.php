@@ -8,11 +8,11 @@ else
 {
 	header('location:../login.php');
 }
-echo " welcome ".$_SESSION['username']
+
 ?> 
 <?php
 	include('header.php');
-	include('titleheader.php');
+	
 ?>
 <?php 
 {
@@ -21,11 +21,16 @@ $FacultyID=$_GET['FacultyID'];
 
 $sql="DELETE FROM student.faculty_info WHERE FacultyID = $FacultyID";
 $result= mysqli_query($db,$sql);   /*include two variable database($db) and query($sql) and finally store $data variable */
-print_r($result); 
+ 
 if($result==1)
   {
-  	echo "Data delete Successfully";
-  
+	  ?>
+  	<script type="text/javascript">
+		alert('Data deleted successfully');
+		window.location.href = "deletefaculty.php";
+	</script>
+<?php  
+//    header('Location: deletefaculty.php');
   }
   else
   {

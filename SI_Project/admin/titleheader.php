@@ -4,9 +4,17 @@
 	<title></title>
 </head>
 <body>
-	<div class="admintitle" align="center">
-		<h4><a href="admindash.php" style="float: left;margin-left: 50px;font-size: 20px;color: white;">Back to Dashboard</a></h4>
-		<h1>Edit Student/Faculty Details</h1>
+		<div class="sidenav">
+<p style="color:#DC3D24" font-family:century Gothic; align="center">Welcome Admin</p>
+  <a href="addstudent.php">Add Student Details</a>
+  <a href="updatestudent.php">Update Student Details</a>
+  <a href="deletestudent.php">Delete Student Details</a>
+  <a href="addfaculty.php">Add Faculty Details</a>
+  <a href="updatefaculty.php">Update Faculty Details</a>
+  <a href="deletefaculty.php">Delete Faculty Details</a>
+  <a href="../logout.php" class="btn">Logout</a>
+   <a href="admindash.php" style="color:white" font-family:century Gothic; align="center">Back To Main Dash</a>
+</div>
 	</div>
 </body>
 </html> 

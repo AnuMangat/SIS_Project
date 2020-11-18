@@ -25,8 +25,21 @@ echo " welcome ".$_SESSION['username'];
 		<h1>Admin Dashboard</h1>
 
 	</div>
-	<div class="dashboard">
-		<table border="0" align="center" style="width: 50%;font-size: 30px;">
+	
+	<div class="sidenav">
+<p style="color:#DC3D24" font-family:century Gothic; align="center">Welcome Admin</p>
+  <a href="addstudent.php">Add Student Details</a>
+  <a href="updatestudent.php">Update Student Details</a>
+  <a href="deletestudent.php">Delete Student Details</a>
+  <a href="addfaculty.php">Add Faculty Details</a>
+  <a href="updatefaculty.php">Update Faculty Details</a>
+  <a href="deletefaculty.php">Delete Faculty Details</a>
+  <a href="../logout.php" class="btn">Logout</a>
+</div>
+
+	<div class="content">
+	
+		<table border="1" align="center" style="width: 50%;font-size: 30px;">
 			<tr>
 				<td>1.</td>
 				<td><a href="addstudent.php">Insert Student Details</a></td>
@@ -53,10 +66,11 @@ echo " welcome ".$_SESSION['username'];
 			</tr>
 		</table>
 
-			<center><a href="../logout.php" class="btn">Logout</a></center>
+			
 
 		
 	</div>
+	
 
 </body >
 </html> 
