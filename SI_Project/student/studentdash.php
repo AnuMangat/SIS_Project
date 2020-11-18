@@ -93,7 +93,7 @@ _END;
 		  echo <<<_END
 				<tr>
 				<td>$row[1]</td>
-				<td>$row[10]</td>   
+				<td>$row[6]</td>   
 				<td>$row[8] $row[9]</td>   
 				<td>$row[2]</td>
 				<td>$row[3]</td>
