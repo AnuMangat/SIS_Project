@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 18, 2020 at 05:29 AM
+-- Generation Time: Nov 19, 2020 at 12:36 AM
 -- Server version: 10.4.14-MariaDB
 -- PHP Version: 7.4.11
 
@@ -136,7 +136,8 @@ CREATE TABLE `enrolled` (
 --
 
 INSERT INTO `enrolled` (`StudentID`, `CourseID`, `Mark`) VALUES
-(123, 'BIOL-2071', 76.00),
+(123, 'COMP-3150', 81.00),
+(123, 'MATH-1730', 61.00),
 (4321, 'BIOL-2071', 81.00);
 
 -- --------------------------------------------------------
@@ -248,7 +249,7 @@ CREATE TABLE `student_info` (
 
 INSERT INTO `student_info` (`StudentID`, `StudentName`, `Major`, `GPA`, `address`, `phone`) VALUES
 (123, 'Thomas Wayne', 'Computer Science', '78.00', '423 California St.', '5195420044'),
-(4321, 'Daniel Crowe', 'Mathematics & Statistics', '81.00', '654 Kay Ave.', '5199984324'),
+(4321, 'Daniel Crowe', 'Mathematics & Statistics', '74.00', '654 Kay Ave.', '5199984324'),
 (6789, 'Nathan Smith', 'Physics', '88.00', '344 Moi St.', '5198854785'),
 (8910, 'Kyle Kenneth', 'Chemistry', '55.00', '976 Tecumseh Ave.', '5197269888'),
 (88778, 'Bob Yung', 'Biology', '76.00', '125 Cameron St.', '5190094568');
