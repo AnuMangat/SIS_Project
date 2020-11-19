@@ -171,7 +171,7 @@ function getStudentInfo($db,$studentid)
 
 function getAvailable($db,$studentid)
 {
-	$sqlAvailable="SELECT * FROM student.teaches t INNER JOIN student.faculty_info f ON t.facultyID = f.facultyID INNER JOIN student.course c ON t.CourseID = c.CourseID LEFT OUTER JOIN student.prerequisite p on c.courseID = p.courseID WHERE p.prereqID IS NULL OR p.prereqID IN (select t.CourseID FROM student.transcript t WHERE t.studentID = $studentid) OR p.prereqID IN (select e.CourseID FROM student.enrolled e WHERE e.studentID = $studentid)";
+	$sqlAvailable="SELECT * FROM student.teaches t INNER JOIN student.faculty_info f ON t.facultyID = f.facultyID INNER JOIN student.course c ON t.CourseID = c.CourseID LEFT OUTER JOIN student.prerequisite p on c.courseID = p.courseID WHERE p.prereqID IS NULL OR p.prereqID IN (select t.CourseID FROM student.transcript t WHERE t.studentID = $studentid AND t.mark >= 50) OR p.prereqID IN (select e.CourseID FROM student.enrolled e WHERE e.studentID = $studentid)";
 	$resultAvailable=mysqli_query($db,$sqlAvailable);
 	if(!empty($resultAvailable) && mysqli_num_rows($resultAvailable)>0)
 	{
