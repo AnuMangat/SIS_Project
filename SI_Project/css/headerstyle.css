@@ -4,6 +4,39 @@ body
 	background-color: #e6ccff
 
 }
+/* Style the side navigation */
+.sidenav {
+  height: 100%;
+  width: 200px;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: #cccccc
+;
+  overflow-x: hidden;
+}
+/* Side navigation links */
+.sidenav a {
+  color: white;
+  padding: 16px;
+  text-decoration: none;
+  display: block;
+  font-weight: bold;
+}
+
+/* Change color on hover */
+.sidenav a:hover {
+  background-color: #d1d1e0;
+  color: black;
+}
+.sidenav .closebtn {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+  margin-left: 50px;
+}
 .admintitle{
 	font-family:century Gothic;
         background-color: #cccccc;

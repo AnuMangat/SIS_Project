@@ -6,8 +6,13 @@
 	<link rel="stylesheet" type="text/css" href="../css/headerstyle.css">
 </head>
 <body>
-
-
+	<div class="sidenav">
+<p style="color:#743d8e" font-family:century Gothic; align="center">Welcome</p>
+ 
+  <a href="studentenrollment.php">Go To Add Courses</a>
+  <a href="studenttranscript.php">View my Transcript</a>
+  <a href="../student_logout.php" class="btn">Logout</a>
+</div>
 
 
 <?php
@@ -27,7 +32,7 @@
 	
 
 	echo <<<_END
-		<form action="studentdash.php" method="post" id="returntodash">
+		<form action="studentdash.php"  align="center" method="post" id="returntodash">
 		<table  border="1" align="center">
 		<thead>
 			<tr>
@@ -64,7 +69,7 @@ _END;
 			</table>
 _END;
 			?>
-			<br><input type="submit" name="returntodash" value="Return to Dashboard">
+			<br><input type="submit" align="center"name="returntodash" value="Return to Dashboard">
 		</form>
 			<br><br>
 
