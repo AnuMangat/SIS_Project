@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 19, 2020 at 12:36 AM
+-- Generation Time: Nov 20, 2020 at 12:03 AM
 -- Server version: 10.4.14-MariaDB
 -- PHP Version: 7.4.11
 
@@ -202,8 +202,10 @@ CREATE TABLE `prerequisite` (
 --
 
 INSERT INTO `prerequisite` (`CourseID`, `PrereqID`) VALUES
+('CHEM-2310', 'CHEM-2300'),
 ('COMP-1410', 'COMP-1400'),
-('COMP-4150', 'COMP-3150');
+('COMP-4150', 'COMP-3150'),
+('MATH-1730', 'MATH-1720');
 
 -- --------------------------------------------------------
 
@@ -352,6 +354,7 @@ ALTER TABLE `admin`
 -- Indexes for table `admin_info`
 --
 ALTER TABLE `admin_info`
+  ADD PRIMARY KEY (`id`),
   ADD KEY `id constraint` (`id`);
 
 --
