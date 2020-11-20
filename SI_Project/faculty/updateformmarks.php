@@ -44,7 +44,21 @@ echo " welcome ".$_SESSION['facultyid']
 	$Mark=$result['Mark'];
 	
 ?>
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Student Management System</title>
+<link rel="stylesheet" type="text/css" href="../css/headerstyle.css">	
+</head>
+<body>
+<div class="sidenav">
+<p style="color:#743d8e" font-family:century Gothic; align="center">Welcome</p>
 
+ <a href="facultydash.php">Back to Dashboard</a>
+ 
+ 
+  <a href="../facultylogout.php" class="btn">Logout</a>
+</div>
 
 
 <center><h1>Student Information<h1></center>

@@ -36,9 +36,14 @@ if($facultyInfo == null)
 <html>
 <head>
 	<title>Student Management System</title> 
+	<link rel="stylesheet"  type="text/css" href="../css/headerstyle.css">	
 </head>
 <body>
-
+<div class="sidenav">
+<p style="color:#743d8e" font-family:century Gothic; align="center">Welcome</p>
+ 
+  <a href="../facultylogout.php" class="btn" align="center">Logout</a>
+</div>
 	<div class="facultytitle" align="center" >
 		<h1>Faculty Dashboard</h1>
 
