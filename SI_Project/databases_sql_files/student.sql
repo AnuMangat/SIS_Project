@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 20, 2020 at 10:32 PM
+-- Generation Time: Nov 20, 2020 at 11:03 PM
 -- Server version: 10.4.14-MariaDB
 -- PHP Version: 7.4.11
 
@@ -137,7 +137,6 @@ CREATE TABLE `enrolled` (
 
 INSERT INTO `enrolled` (`StudentID`, `CourseID`, `Mark`) VALUES
 (123, 'COMP-3150', 81.00),
-(123, 'MATH-1730', 61.00),
 (4321, 'BIOL-2071', 81.00);
 
 -- --------------------------------------------------------
