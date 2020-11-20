@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 20, 2020 at 09:55 PM
+-- Generation Time: Nov 20, 2020 at 10:32 PM
 -- Server version: 10.4.14-MariaDB
 -- PHP Version: 7.4.11
 
@@ -304,12 +304,12 @@ INSERT INTO `teaches` (`FacultyID`, `CourseID`, `RoomNo`, `Building`, `StartTime
 (123, 'COMP-4150', 402, 'Toldo Building', '01:00:00', '01:50:00', 'Advanced Database Design', 'MW'),
 (454, 'CHEM-1003', 402, 'Toldo Building', '08:30:00', '09:50:00', 'Alchemy to Chemistry: Science Through the Ages', 'MW'),
 (454, 'CHEM-3300', 53, 'Chrysler Hall North', '08:30:00', '09:50:00', 'Spectroscopic Structure Identification', 'TR'),
-(456, 'MATH-1720', 401, 'Toldo Building', '10:00:00', '11:20:00', 'Differential Calculus', 'TR'),
-(456, 'MATH-1730', 1121, 'Erie Hall', '10:00:00', '11:20:00', 'Integral Calculus', 'MWF'),
+(456, 'MATH-1720', 401, 'Toldo Building', '02:00:00', '02:50:00', 'Differential Calculus', 'TR'),
+(456, 'MATH-1730', 1121, 'Erie Hall', '11:30:00', '12:20:00', 'Integral Calculus', 'MWF'),
 (789, 'BIOL-2071', 1121, 'Erie Hall', '02:30:00', '03:50:00', 'Introductory Microbiology & Techniques', 'MW'),
 (789, 'BIOL-2111', 53, 'Chrysler Hall North', '10:00:00', '11:20:00', 'Genetics', 'TR'),
-(12345, 'PHYS-2250', 53, 'Chrysler Hall North', '10:00:00', '11:20:00', 'Optics', 'MW'),
-(12345, 'PHYS-2500', 1121, 'Erie Hall', '01:00:00', '01:50:00', 'Intermediate Mechanics', 'MW');
+(12345, 'PHYS-2250', 53, 'Chrysler Hall North', '04:00:00', '05:20:00', 'Optics', 'MW'),
+(12345, 'PHYS-2500', 1121, 'Erie Hall', '01:00:00', '01:50:00', 'Intermediate Mechanics', 'TR');
 
 -- --------------------------------------------------------
 
