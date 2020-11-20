@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 20, 2020 at 12:03 AM
+-- Generation Time: Nov 20, 2020 at 09:55 PM
 -- Server version: 10.4.14-MariaDB
 -- PHP Version: 7.4.11
 
@@ -291,24 +291,25 @@ CREATE TABLE `teaches` (
   `Building` varchar(40) COLLATE utf8_unicode_ci NOT NULL,
   `StartTime` time NOT NULL,
   `EndTime` time NOT NULL,
-  `Title` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL
+  `Title` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `day` varchar(20) COLLATE utf8_unicode_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Dumping data for table `teaches`
 --
 
-INSERT INTO `teaches` (`FacultyID`, `CourseID`, `RoomNo`, `Building`, `StartTime`, `EndTime`, `Title`) VALUES
-(123, 'COMP-3150', 402, 'Toldo Building', '10:00:00', '11:20:00', 'Database Management Systems'),
-(123, 'COMP-4150', 402, 'Toldo Building', '01:00:00', '01:50:00', 'Advanced Database Design'),
-(454, 'CHEM-1003', 402, 'Toldo Building', '08:30:00', '09:50:00', 'Alchemy to Chemistry: Science Through the Ages'),
-(454, 'CHEM-3300', 53, 'Chrysler Hall North', '08:30:00', '09:50:00', 'Spectroscopic Structure Identification'),
-(456, 'MATH-1720', 401, 'Toldo Building', '10:00:00', '11:20:00', 'Differential Calculus'),
-(456, 'MATH-1730', 1121, 'Erie Hall', '10:00:00', '11:20:00', 'Integral Calculus'),
-(789, 'BIOL-2071', 1121, 'Erie Hall', '02:30:00', '03:50:00', 'Introductory Microbiology & Techniques'),
-(789, 'BIOL-2111', 53, 'Chrysler Hall North', '10:00:00', '11:20:00', 'Genetics'),
-(12345, 'PHYS-2250', 53, 'Chrysler Hall North', '10:00:00', '11:20:00', 'Optics'),
-(12345, 'PHYS-2500', 1121, 'Erie Hall', '01:00:00', '01:50:00', 'Intermediate Mechanics');
+INSERT INTO `teaches` (`FacultyID`, `CourseID`, `RoomNo`, `Building`, `StartTime`, `EndTime`, `Title`, `day`) VALUES
+(123, 'COMP-3150', 402, 'Toldo Building', '10:00:00', '11:20:00', 'Database Management Systems', 'MW'),
+(123, 'COMP-4150', 402, 'Toldo Building', '01:00:00', '01:50:00', 'Advanced Database Design', 'MW'),
+(454, 'CHEM-1003', 402, 'Toldo Building', '08:30:00', '09:50:00', 'Alchemy to Chemistry: Science Through the Ages', 'MW'),
+(454, 'CHEM-3300', 53, 'Chrysler Hall North', '08:30:00', '09:50:00', 'Spectroscopic Structure Identification', 'TR'),
+(456, 'MATH-1720', 401, 'Toldo Building', '10:00:00', '11:20:00', 'Differential Calculus', 'TR'),
+(456, 'MATH-1730', 1121, 'Erie Hall', '10:00:00', '11:20:00', 'Integral Calculus', 'MWF'),
+(789, 'BIOL-2071', 1121, 'Erie Hall', '02:30:00', '03:50:00', 'Introductory Microbiology & Techniques', 'MW'),
+(789, 'BIOL-2111', 53, 'Chrysler Hall North', '10:00:00', '11:20:00', 'Genetics', 'TR'),
+(12345, 'PHYS-2250', 53, 'Chrysler Hall North', '10:00:00', '11:20:00', 'Optics', 'MW'),
+(12345, 'PHYS-2500', 1121, 'Erie Hall', '01:00:00', '01:50:00', 'Intermediate Mechanics', 'MW');
 
 -- --------------------------------------------------------
 
