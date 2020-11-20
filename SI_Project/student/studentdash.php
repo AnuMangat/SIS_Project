@@ -77,7 +77,7 @@ echo <<<_END
 		<table  border="1"  align="center" >
 		<thead>
 			<tr>
-			<th colspan="7" ><h4>Courses On Offer<h4></th>
+			<th colspan="8" ><h4>Courses On Offer<h4></th>
 			</tr>
 			<tr>
 			<th align="left">Course ID</th>
@@ -85,6 +85,7 @@ echo <<<_END
 			<th align="left">Taught By</th>   
 			<th align="left">RoomNo</th>  
 			<th align="left">Building</th>
+			<th align="left">Days</th>
 			<th align="left">Start Time</th>
 			<th align="left">End Time</th>
 			</tr>
@@ -102,9 +103,10 @@ _END;
 				<tr>
 				<td>$row[1]</td>
 				<td>$row[6]</td>   
-				<td>$row[8] $row[9]</td>   
+				<td>$row[9] $row[10]</td>   
 				<td>$row[2]</td>
 				<td>$row[3]</td>
+				<td>$row[7]</td>
 				<td>$row[4]</td>
 				<td>$row[5]</td>   
 				 </td>
@@ -127,7 +129,7 @@ _END;
 		<table  border="1"  align="center" >
 		<thead>
 			<tr>
-			<th colspan="8" ><h4>Your Current Enrollment<h4></th>
+			<th colspan="9" ><h4>Your Current Enrollment<h4></th>
 			</tr>
 			<tr>
 			<th align="left">Course ID</th>
@@ -135,6 +137,7 @@ _END;
 			<th align="left">Taught By</th>   
 			<th align="left">RoomNo</th>  
 			<th align="left">Building</th>
+			<th align="left">Days</th>
 			<th align="left">Start Time</th>
 			<th align="left">End Time</th>
 			<th align="left">Mark</th>
@@ -153,9 +156,10 @@ _END;
 				<tr>
 				<td>$row[1]</td>
 				<td>$row[9]</td>   
-				<td>$row[15] $row[16]</td>  
+				<td>$row[16] $row[17]</td>  
 				<td>$row[5]</td>
 				<td>$row[6]</td>
+				<td>$row[10]</td>
 				<td>$row[7]</td>
 				<td>$row[8]</td>
 				<td>$row[2]</td>   
